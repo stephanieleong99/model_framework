@@ -1,11 +1,13 @@
 import codecs
 import os
 import math
-from utils.CONST import root
+from utils.CONST import data_dir as root
+import utils.CONST as cst
 import multiprocessing as mp
-feature_list = os.path.join(root, "features_ids")
-data_file = os.path.join(root, "features_lines")
-result_path = os.path.join(root, "features_coef")
+
+feature_list = os.path.join(root, "_".join([cst.app,"features_ids"]))
+data_file = os.path.join(root, "_".join([cst.app,"features_lines"]))
+result_path = os.path.join(root, "_".join([cst.app,"features_coef"]))
 
 
 def load_feature():
