@@ -6,7 +6,6 @@ from predifined_methods import Feature
 from utils.CONST import data_dir as root
 import utils.CONST as cst
 
-
 FEA = Feature()
 
 FEA.config = os.path.join(cst.app_root_path, 'feas_reconstruct')
@@ -41,7 +40,6 @@ def print_fea_vector(data, split_fea=True):
 
             # print FEA.num_fea_dict
             if len(FEA.num_fea_dict) > len(fea):  # 有交叉特征
-                print "???"
                 n += 1
                 pair_name = FEA.num_fea_dict[n]
                 fea_name_list = FEA.num_fea_dict[n].split("&")

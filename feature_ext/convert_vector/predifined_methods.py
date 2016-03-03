@@ -14,13 +14,14 @@ def gen_cates(method, arrs):
         return {ar: 1 for ar in arrs.split("#")}
 
     def number(arrs):
-        if len(arrs) <=1: return []
+        if len(arrs) <= 1: return []
         arrs_list = [float(x) for x in arrs.split("#")]
         return arrs_list
 
     def pair(arrs):
         return []
-    print method,"gen"
+
+    print method, "gen"
     return locals().get(method)(arrs)
 
 
@@ -49,7 +50,7 @@ class Conf(object):
 class Feature(object):
     feature_number = 0
     feature_dict = {}
-    fea_id_out = os.path.join(root,"_".join([cst.app,"features_ids"]))
+    fea_id_out = os.path.join(root, "_".join([cst.app, "features_ids"]))
     fea_conf = {}
     fea_number_dict = {}
     config = config
@@ -105,7 +106,6 @@ class Feature(object):
             fea_value = fea_value.strip()
             return "0" if fea_value == "NULL" or fea_value <= "0" else fea_value
 
-        print fea_name_list, fea_value_list, '1'
         fea_value_list = [check_value(val) for val in fea_value_list]
         # 获得参数list
         fea_list = fea_name_list
@@ -117,16 +117,13 @@ class Feature(object):
             fea_value = float(fea_value.strip())
             data_method = cf.method.split("#")[0]
             if data_method == "number":
-                print cf.arrs_list, fea_value, '4'
                 return "_".join([str(x) for x in trans_value_to_threds(cf.arrs_list, fea_value)])
 
             if data_method == "cate":
                 return str(fea_value)
 
         value_name = "_".join(map(one_fea_value, zip(cf_list, fea_value_list)))
-        print fea_name, value_name, '2'
         key = "_".join([fea_name, value_name])
-        print key, "key###########", '3'
         return self.add_feature(key)
 
     def origin(self, fea_name, fea_value):

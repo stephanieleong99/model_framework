@@ -10,9 +10,11 @@ root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 feature_ext_root_path = os.path.join(root_path,"feature_ext")
 #install
 cvt_root_path = os.path.join(feature_ext_root_path,"convert_vector")
-app = "abnormal_dis_analysis"
-app_file = "user_abn_dis__without_right_users"
-app_root_path = os.path.join(cvt_root_path,app)
+config_path = os.path.join(feature_ext_root_path,"config")
+
+app = "abn_dis_user_poi"
+app_file = "abn_dis_user_poi__order_ab_0__users_20000"
+app_root_path = os.path.join(config_path,app)
 
 
 def parse_method(method):
