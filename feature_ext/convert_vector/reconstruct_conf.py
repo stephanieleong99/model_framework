@@ -71,10 +71,10 @@ def process_cate(conf, value):
 def process_number(conf, value):
     v = FEA.fea_number_value_list[conf.name]
     sorted_v = filter(lambda x: float(x) >= 0,
-                      sorted([x for x in v if x.strip() != "NULL"], key=lambda x: float(x)))
+                      sorted([x.strip() for x in v if cst.isfloat(x)], key=lambda x: float(x)))
 
     def equal_freq(v):
-        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 20)] + [v[-1]] )),
+        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 7)] + [v[-1]] )),
                       key = lambda x: float(x))
         return freq
 

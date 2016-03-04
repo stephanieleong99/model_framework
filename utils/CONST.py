@@ -1,20 +1,20 @@
 import os
+import argparse
 
-#data
+# data
 data_dir = "/Users/dongjian/data"
-data_file = os.path.join(data_dir,"ab_user_train_data")
 
-
-#code
+# code
 root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-feature_ext_root_path = os.path.join(root_path,"feature_ext")
-#install
-cvt_root_path = os.path.join(feature_ext_root_path,"convert_vector")
-config_path = os.path.join(feature_ext_root_path,"config")
+feature_ext_root_path = os.path.join(root_path, "feature_ext")
 
-app = "abn_dis_user_poi"
-app_file = "abn_dis_user_poi__order_ab_0__users_20000"
-app_root_path = os.path.join(config_path,app)
+# install
+cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
+config_path = os.path.join(feature_ext_root_path, "config")
+
+app = "test"
+app_file = "fea_raw_file"
+app_root_path = os.path.join(config_path, app)
 
 
 def parse_method(method):
@@ -24,3 +24,29 @@ def parse_method(method):
     else:
         key, value = items[0], "None"
     return key, value
+
+
+def init_arguments():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-app', type=str, dest="app",
+                        help="app name")
+    parser.add_argument('-f', type=str, dest='app_file',
+                        help="app file")
+    return parser.parse_args()
+
+
+def isfloat(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
+
+
+if __name__ == "__main__":
+    # global app,app_file
+    args = init_arguments()
+    app = args.app
+    app_file = args.app_file
+    print app, app_file

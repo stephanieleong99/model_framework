@@ -46,6 +46,7 @@ def correlation_coefficient(x_list, y_list):
     yy_sum = sum([y_list[i] * y_list[i] for i in range_n])
     fenzi = float(n) * xy_sum - x_sum * y_sum
     fenmu = math.sqrt(n * xx_sum - x_sum * x_sum) * math.sqrt(n * yy_sum - y_sum * y_sum)
+    # print fenzi,fenmu
     return fenzi / fenmu if fenmu else 0.0
 
 
