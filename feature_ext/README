@@ -1,4 +1,0 @@
-在utils中配置 app(这组特征分析的命名) ,app_file (对应的data输入文件.格式为hive 抽取的格式,第一行为列名.)
-在config中配置增加app同名的文件夹.
-
-配置完后 执行 convert_vector中的run.sh

@@ -2,37 +2,40 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/model/train.py" description="print 'pos recall:{0:0.3f}'.format(TP/float(TP+FN)..." line="74" />
+    <bookmark url="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_action.sql" description="sum(wm_order_pay_type) / count(1)          AS paye..." line="41" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee47ee47-b7ce-41c2-9dfc-6c3c929e4f47" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_ext/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_ext/config/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_ext/convert_vector/run.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_ext/ext_sql/ext_user_info.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/poi_dis_ana/ana.awk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/poi_dis_ana/ana_poi_dis.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/abnormal_dis_analysis/feas" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/abnormal_dis_analysis/feas_instruction" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/abnormal_dis_analysis/feas_reconstruct" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feas" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_bak" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_introduction" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_reconstruct" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_test" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feature_conf_test" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/test/feature_conf_test_meituan" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model/test.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model/train.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model/train.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/model/__init__.py" afterPath="$PROJECT_DIR$/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/config/user_features/feas" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/config/user_features/feas_introduction" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/bak" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_action.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_info.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/extract_bill_info.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/pos.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/uuid_phone.sql" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/config/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/chi2&amp;tree.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/fea_extra.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/information_gain.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/parse_fea.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/predifined_methods.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/reconstruct_conf.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/run.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/tree.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_col.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/bayes_ext.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/ext.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/ext_user_info.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/extract_poi_dis.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/rand.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/tmp.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feature_ext/tmp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py" afterPath="$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/fea_extra.py" afterPath="$PROJECT_DIR$/feature_ext/convert_vector/fea_extra.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feature_ext/convert_vector/predifined_methods.py" afterPath="$PROJECT_DIR$/feature_ext/convert_vector/predifined_methods.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feature_ext/ext_sql/extract_poi_dis.sql" afterPath="$PROJECT_DIR$/feature_ext/ext_sql/extract_poi_dis.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/tmp.py" afterPath="$PROJECT_DIR$/tmp/tmp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/tmp.sql" afterPath="$PROJECT_DIR$/tmp/tmp.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/CONST.py" afterPath="$PROJECT_DIR$/utils/CONST.py" />
     </list>
     <ignored path="UserDetected.iws" />
@@ -47,10 +50,11 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/UserDetected$extract_bill_info.coverage" NAME="extract_bill_info Coverage Results" MODIFIED="1457402037278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action" />
     <SUITE FILE_PATH="coverage/UserDetected$chi2_tree.coverage" NAME="chi2&amp;tree Coverage Results" MODIFIED="1455609188357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
     <SUITE FILE_PATH="coverage/UserDetected$parse_fea.coverage" NAME="parse_fea Coverage Results" MODIFIED="1456728144025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
-    <SUITE FILE_PATH="coverage/UserDetected$CONST.coverage" NAME="CONST Coverage Results" MODIFIED="1456714021690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/UserDetected$reconstruct_conf.coverage" NAME="reconstruct_conf Coverage Results" MODIFIED="1456725856603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
+    <SUITE FILE_PATH="coverage/UserDetected$CONST.coverage" NAME="CONST Coverage Results" MODIFIED="1457073342152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/UserDetected$train.coverage" NAME="train Coverage Results" MODIFIED="1452494635099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/UserDetected$Pearson.coverage" NAME="Pearson Coverage Results" MODIFIED="1456725884081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
     <SUITE FILE_PATH="coverage/UserDetected$Nosetests_in_test.coverage" NAME="Nosetests in test Coverage Results" MODIFIED="1453368983686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
@@ -58,7 +62,7 @@
     <SUITE FILE_PATH="coverage/UserDetected$chi2.coverage" NAME="chi2 Coverage Results" MODIFIED="1455592116048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
     <SUITE FILE_PATH="coverage/UserDetected$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1453367165222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/UserDetected$information_gain.coverage" NAME="information_gain Coverage Results" MODIFIED="1454662153000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
-    <SUITE FILE_PATH="coverage/UserDetected$predifined_methods.coverage" NAME="predifined_methods Coverage Results" MODIFIED="1456714458231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
+    <SUITE FILE_PATH="coverage/UserDetected$predifined_methods.coverage" NAME="predifined_methods Coverage Results" MODIFIED="1457418527940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_work/convert_vector" />
     <SUITE FILE_PATH="coverage/UserDetected$fea_selection.coverage" NAME="fea_selection Coverage Results" MODIFIED="1453784261818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext/convert_vector" />
     <SUITE FILE_PATH="coverage/UserDetected$tmp.coverage" NAME="tmp Coverage Results" MODIFIED="1454389421909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
     <SUITE FILE_PATH="coverage/UserDetected$ext_col.coverage" NAME="ext_col Coverage Results" MODIFIED="1453370086619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature_ext" />
@@ -73,20 +77,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Pearson.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py">
+      <file leaf-file-name="predifined_methods.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/predifined_methods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.6738281">
+              <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feas" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_ext/config/test/feas">
+      <file leaf-file-name="feas_instruction" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas_instruction">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -95,50 +97,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feas_reconstruct" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_ext/config/test/feas_reconstruct">
+      <file leaf-file-name="parse_fea.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/parse_fea.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1960.5555">
-              <caret line="122" column="6891" selection-start-line="122" selection-start-column="6891" selection-end-line="122" selection-end-column="6891" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/train.py">
+      <file leaf-file-name="Pearson.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/Pearson.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="predifined_methods.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/predifined_methods.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="feas" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_ext/config/abnormal_dis_analysis/feas">
+        <entry file="file://$PROJECT_DIR$/feature_work/config/abnormal_dis_analysis/feas">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
@@ -147,31 +129,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/feature_ext/README">
+      <file leaf-file-name="feas" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.083798885">
-              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_ext/config/README">
+      <file leaf-file-name="fea_extra.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/fea_extra.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="30" />
+              <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CONST.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/CONST.py">
+      <file leaf-file-name="feas_reconstruct" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas_reconstruct">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="432.22223">
+              <caret line="1" column="93947" selection-start-line="1" selection-start-column="93947" selection-end-line="1" selection-end-column="93947" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uuid_phone.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/uuid_phone.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.6666665">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reconstruct_conf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/reconstruct_conf.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="3" />
+              <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -192,57 +194,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/model/test.ipynb" />
-        <option value="$PROJECT_DIR$/tmp/dim_risk_user__bayes_validate_data.sql" />
-        <option value="$PROJECT_DIR$/feature_ext/ext.sql" />
-        <option value="$PROJECT_DIR$/feature_ext/bayes_ext.sql" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/test/feature_conf_test" />
-        <option value="$PROJECT_DIR$/feature_ext/ext_sql/rand.sql" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/test/feature_conf_test_meituan" />
-        <option value="$PROJECT_DIR$/tmp/tmp2.sql" />
-        <option value="$PROJECT_DIR$/feature_ext/ext_sql/ext.sql" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/__init__.py" />
-        <option value="$PROJECT_DIR$/feature_ext/__init__.py" />
-        <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/tmp/test.py" />
-        <option value="$PROJECT_DIR$/tmp/haha.py" />
-        <option value="$PROJECT_DIR$/feature_ext/tmp" />
-        <option value="$PROJECT_DIR$/feature_ext/ext_col.py" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/fea_selectioin.py" />
-        <option value="$PROJECT_DIR$/tmp/tmp3.sql" />
-        <option value="$PROJECT_DIR$/tmp/test.scala" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/fea_selection.py" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/information_gain.py" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/chi2.py" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/tree.py" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/chi2&amp;tree.py" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_introduction" />
-        <option value="$PROJECT_DIR$/feature_ext/ext_sql/tmp.sql" />
         <option value="$PROJECT_DIR$/feature_ext/ext_sql/bayes_ext.sql" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_reconstruct" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/test/feas_bak" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/test/feas" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/reconstruct_conf.py" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/abnormal_dis_analysis/feas_instruction" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/abnormal_dis_analysis/feas" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/abn_dis_user_poi/feas" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py" />
-        <option value="$PROJECT_DIR$/utils/CONST.py" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/fea_extra.py" />
-        <option value="$PROJECT_DIR$/feature_ext/convert_vector/run.sh" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/parse_fea.py" />
         <option value="$PROJECT_DIR$/tmp/poi_dis_ana/ana.awk" />
         <option value="$PROJECT_DIR$/feature_ext/ext_sql/extract_poi_dis.sql" />
         <option value="$PROJECT_DIR$/tmp/poi_dis_ana/ana_poi_dis.py" />
-        <option value="$PROJECT_DIR$/feature_ext/config/test/feas_introduction" />
         <option value="$PROJECT_DIR$/feature_ext/config/abn_dis_user_poi/feas" />
         <option value="$PROJECT_DIR$/feature_ext/ext_sql/ext_user_info.sql" />
         <option value="$PROJECT_DIR$/tmp/tmp.py" />
-        <option value="$PROJECT_DIR$/tmp/tmp.sql" />
         <option value="$PROJECT_DIR$/feature_ext/convert_vector/predifined_methods.py" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/feature_ext/config/README" />
         <option value="$PROJECT_DIR$/feature_ext/README" />
+        <option value="$PROJECT_DIR$/data_extraction/user_info_extract.sql" />
+        <option value="$PROJECT_DIR$/feature_ext/config/test/feas_introduction" />
+        <option value="$PROJECT_DIR$/feature_ext/convert_vector/run.sh" />
+        <option value="$PROJECT_DIR$/feature_ext/config/test/feas" />
+        <option value="$PROJECT_DIR$/feature_ext/config/test/feas_reconstruct" />
+        <option value="$PROJECT_DIR$/feature_ext/convert_vector/reconstruct_conf.py" />
+        <option value="$PROJECT_DIR$/feature_ext/ext_sql/tmp.sql" />
+        <option value="$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_sql/ext_user_info.sql" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/extract_userinfo.python.py" />
+        <option value="$PROJECT_DIR$/feature_work/tmp" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/bak" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_info.sql" />
+        <option value="$PROJECT_DIR$/tmp/tmp.sql" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/uuid_phone.sql" />
+        <option value="$PROJECT_DIR$/model/rand.awk" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/extract_bill_info.py" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/tmp" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/extract_user_info.py" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/pos.sql" />
+        <option value="$PROJECT_DIR$/feature_work/config/user_features/feas" />
+        <option value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_action.sql" />
+        <option value="$PROJECT_DIR$/feature_work/config/user_features/feas_reconstruct" />
+        <option value="$PROJECT_DIR$/utils/CONST.py" />
+        <option value="$PROJECT_DIR$/feature_work/config/abnormal_dis_analysis/feas" />
+        <option value="$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas" />
+        <option value="$PROJECT_DIR$/feature_work/convert_vector/reconstruct_conf.py" />
+        <option value="$PROJECT_DIR$/feature_work/convert_vector/fea_extra.py" />
+        <option value="$PROJECT_DIR$/feature_work/convert_vector/predifined_methods.py" />
       </list>
     </option>
   </component>
@@ -281,7 +283,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -324,7 +325,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="feature_ext" />
+              <option name="myItemId" value="tmp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -338,11 +339,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="feature_ext" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ext_sql" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -356,7 +353,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="feature_ext" />
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_extact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ext_user_action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_extact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="convert_vector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -364,80 +433,130 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user_features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abnormal_dis_analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feature_work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abn_dis_user_poi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDetected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_extraction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/work/meituan/feature_framework" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/work/experiment/test" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action" />
+      <recent name="$PROJECT_DIR$/feature_ext/convert_vector/test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/feature_ext/ext_sql" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/feature_ext/convert_vector/test" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.ana_poi_dis">
-    <configuration default="false" name="fea_extra" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/feature_ext/convert_vector" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="UserDetected" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feature_ext/convert_vector/fea_extra.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="reconstruct_conf" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/feature_ext/convert_vector" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="UserDetected" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feature_ext/convert_vector/reconstruct_conf.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Pearson" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/feature_ext/convert_vector" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="UserDetected" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.predifined_methods">
     <configuration default="false" name="parse_fea" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -470,6 +589,60 @@
       <module name="UserDetected" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tmp/poi_dis_ana/ana_poi_dis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CONST" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="UserDetected" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/CONST.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="extract_bill_info" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="UserDetected" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/extract_bill_info.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="predifined_methods" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/feature_work/convert_vector" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="UserDetected" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feature_work/convert_vector/predifined_methods.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -668,19 +841,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.fea_extra" />
-      <item index="1" class="java.lang.String" itemvalue="Python.reconstruct_conf" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Pearson" />
-      <item index="3" class="java.lang.String" itemvalue="Python.parse_fea" />
-      <item index="4" class="java.lang.String" itemvalue="Python.ana_poi_dis" />
+      <item index="0" class="java.lang.String" itemvalue="Python.parse_fea" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ana_poi_dis" />
+      <item index="2" class="java.lang.String" itemvalue="Python.CONST" />
+      <item index="3" class="java.lang.String" itemvalue="Python.extract_bill_info" />
+      <item index="4" class="java.lang.String" itemvalue="Python.predifined_methods" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ana_poi_dis" />
-        <item index="1" class="java.lang.String" itemvalue="Python.parse_fea" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Pearson" />
-        <item index="3" class="java.lang.String" itemvalue="Python.fea_extra" />
-        <item index="4" class="java.lang.String" itemvalue="Python.reconstruct_conf" />
+        <item index="0" class="java.lang.String" itemvalue="Python.predifined_methods" />
+        <item index="1" class="java.lang.String" itemvalue="Python.extract_bill_info" />
+        <item index="2" class="java.lang.String" itemvalue="Python.CONST" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ana_poi_dis" />
+        <item index="4" class="java.lang.String" itemvalue="Python.parse_fea" />
       </list>
     </recent_temporary>
   </component>
@@ -709,18 +882,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26824033" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23748212" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822478" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2765685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21200511" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32694763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27586207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32694763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38697317" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39820743" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -728,7 +902,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -752,55 +925,16 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/codecs.py">
+    <entry file="file://$PROJECT_DIR$/feature_work/tmp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="883" column="0" selection-start-line="883" selection-start-column="0" selection-end-line="883" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/sklearn/metrics/classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1088" column="30" selection-start-line="1088" selection-start-column="30" selection-end-line="1088" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/train.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="-1" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/test.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -832,13 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/tmp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="300" selection-start-line="0" selection-start-column="300" selection-end-line="0" selection-end-column="300" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/sklearn/feature_selection/univariate_selection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -851,34 +978,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="2172" column="12" selection-start-line="2172" selection-start-column="12" selection-end-line="2172" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_sql/ext.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.555555">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_sql/tmp.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.7222223">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_sql/rand.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8888888">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_sql/bayes_ext.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2222223">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -896,42 +995,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_col.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmp/poi_dis_ana/ana.awk">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2222223">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/abnormal_dis_analysis/feas_instruction">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,33 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/test/feas_introduction">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="180" column="20" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_sql/extract_poi_dis.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.407408">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/ext_sql/ext_user_info.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -973,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.2222223">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,15 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.111111">
           <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/tmp.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.222222">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1005,123 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/fea_extra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/information_gain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/parse_fea.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/reconstruct_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/chi2&amp;tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/abn_dis_user_poi/feas">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/abn_dis_user_poi/feas_instruction">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/abn_dis_user_poi/feas_reconstruct">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2576.6667">
-          <caret line="1" column="239624" selection-start-line="1" selection-start-column="239624" selection-end-line="1" selection-end-column="239624" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/test/feas">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/test/feas_reconstruct">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1960.5555">
-          <caret line="122" column="6891" selection-start-line="122" selection-start-column="6891" selection-end-line="122" selection-end-column="6891" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/Pearson.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/convert_vector/predifined_methods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/CONST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,11 +1041,208 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_extraction/user_info_extract.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_sql/tmp.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.888889">
+          <caret line="16" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_sql/ext.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.111111">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_sql/ext_user_info.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/abnormal_dis_analysis/feas">
+    <entry file="file://$PROJECT_DIR$/feature_work/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/tmp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_sql/bayes_ext.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/tmp.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6666665">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rand.awk">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/train.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/tmp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="287" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/extract_bill_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_info.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="9" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/pos.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9444444">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/information_gain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/user_features/feas_introduction">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2222223">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/test/feas">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/user_features/feas">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2222223">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/ext_user_action.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.111111">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/user_features/feas_reconstruct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/CONST.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/abnormal_dis_analysis/feas_reconstruct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="1353" selection-start-line="0" selection-start-column="1353" selection-end-line="0" selection-end-column="1353" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/abnormal_dis_analysis/feas">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
@@ -1141,18 +1250,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/config/README">
+    <entry file="file://$PROJECT_DIR$/feature_work/feature_extact/ext_user_action/uuid_phone.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="30" />
+        <state vertical-scroll-proportion="-6.6666665">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_ext/README">
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/reconstruct_conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.083798885">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas_reconstruct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="432.22223">
+          <caret line="1" column="93947" selection-start-line="1" selection-start-column="93947" selection-end-line="1" selection-end-column="93947" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/parse_fea.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/Pearson.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/fea_extra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas_instruction">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/config/abn_dis_user_poi/feas">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_work/convert_vector/predifined_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6738281">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -1,8 +1,0 @@
-配置app后,创建文件夹.
-在每一个app中,需要创建feas文件
-
-格式为
-特征名称,处理方法#子处理方法,参数
-现在label对应特征名称为 punish_status.
-
-配置完后 执行 convert_vector中的run.sh

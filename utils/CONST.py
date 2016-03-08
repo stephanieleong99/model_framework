@@ -6,14 +6,14 @@ data_dir = "/Users/dongjian/data"
 
 # code
 root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-feature_ext_root_path = os.path.join(root_path, "feature_ext")
+feature_ext_root_path = os.path.join(root_path, "feature_work")
 
 # install
 cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
 config_path = os.path.join(feature_ext_root_path, "config")
 
-app = "test"
-app_file = "fea_raw_file"
+app = "abn_dis_user_poi"
+app_file = "abn_dis_user_poi__order_ab_0__users_20000"
 app_root_path = os.path.join(config_path, app)
 
 
