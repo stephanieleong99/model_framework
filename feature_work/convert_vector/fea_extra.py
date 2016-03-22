@@ -20,34 +20,47 @@ label_name = "punish_status"
 
 
 def print_fea_vector(data, split_fea=True):
+    rs_list = []
     with codecs.open(feature_lines, "w", "utf8") as file:
-        for d in data:
+        for number, d in enumerate(data[:]):
             fea = d.split("\t")
             try:
                 one_lable = str(int(float(fea[FEA.fea_number_dict[label_name] - 1])))
             except:
                 one_lable = "0"
-
+            if int(one_lable) > 1:
+                one_lable = "1"
             fea_list = []
 
             for n, fea_value in enumerate(fea):
                 n += 1
                 if n != FEA.fea_number_dict[label_name]:
+
+                    fea_name = FEA.num_fea_dict[n]
                     if FEA.fea_conf[fea_name].method == "none":
                         continue
-                    fea_name = FEA.num_fea_dict[n]
                     v = FEA.__getattribute__(cst.parse_method(FEA.fea_conf[fea_name].method)[0])(fea_name, fea_value)
-                    fea_list.append([str(v), "1"])
+                    # if fea[0] == "13001934292":
+                    #     print v,fea_value,fea_name
+                    if v:
+                        fea_list.append([str(v), "1"])
 
-            # print FEA.num_fea_dict
             if len(FEA.num_fea_dict) > len(fea):  # 有交叉特征
                 n += 1
                 pair_name = FEA.num_fea_dict[n]
                 fea_name_list = FEA.num_fea_dict[n].split("&")
                 fea_value_list = [fea[num - 1] for num in [FEA.fea_number_dict[fea_name] for fea_name in fea_name_list]]
-                v = FEA.__getattribute__(FEA.fea_conf[pair_name].method)(fea_name_list, fea_value_list)
+                v = FEA.__getattribute__(FEA.fea_conf[pair_name].method)(fea_name_list
+                                                                         , fea_value_list)
 
-            one_data = " ".join([":".join(fe) for fe in fea_list])
-            file.write("\t".join([one_lable, one_data, "\n"]))
+            one_data = " ".join([":".join(fe) for fe in sorted(fea_list, key=lambda x: int(x[0]))])
+            rs_list.append("\t".join([one_lable, one_data]))
+            if number % 1000 == 1:
+                print number
+                print "\t".join([one_lable, one_data])
+
+        file.write("\n".join(rs_list))
+
+
 print_fea_vector(data, split_fea=True)
 FEA.print_feas()

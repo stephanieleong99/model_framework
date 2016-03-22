@@ -12,8 +12,8 @@ feature_ext_root_path = os.path.join(root_path, "feature_work")
 cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
 config_path = os.path.join(feature_ext_root_path, "config")
 
-app = "abn_dis_user_poi"
-app_file = "abn_dis_user_poi__order_ab_0__users_20000"
+app = "user_features_test"
+app_file = "user_features_test" #user_feature_raw_dup
 app_root_path = os.path.join(config_path, app)
 
 

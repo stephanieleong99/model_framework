@@ -54,7 +54,7 @@ FROM
       count(DISTINCT (recipient_address))        AS recipient_address_num,
       count(1)                                   AS order_num
     FROM mart_waimai_risk.fact_ord_submitted_risk
-    WHERE dt > "20150601"
+    WHERE dt > "20150601" and status! =9
     GROUP BY recipient_phone
     --     LIMIT 500
 
@@ -102,14 +102,15 @@ FROM
      dm_num,
      last_date
    FROM mart_waimai_risk.dim_user_property_risk
-   WHERE ord_num > 10 ) e ON e.phone = b.recipient_phone
+   WHERE ord_num > 10 AND last_date >= "20160310") e ON e.phone = b.recipient_phone
+where e.punish_status = 1 or e.punish_status = 0
 GROUP BY b.recipient_phone
 LIMIT 50000
 
 
 
 phone string COMMENT '封禁用户',
-payed_arrived_rate DOUBLE COMMENT '货到付款占比',
+payed_arrived_rate DOUBLE COMMENT '货到 付款占比',
 in_scope_rate DOUBLE COMMENT '是否在配送范围 占比',
 mean_dis DOUBLE COMMENT '平均配送距离',
 aor_id_num INT COMMENT '蜂窝数目',

@@ -23,13 +23,6 @@ label_name = "punish_status"
 
 c_args = {",": "0x32"}
 
-
-# def mul_replace(c_args):
-#
-#     return text
-
-
-#
 def print_fea_vector(data, split_fea=True):
     with codecs.open(feas, "w", "utf8") as file:
         for d in data:
@@ -79,14 +72,13 @@ def process_number(conf, value):
     def wash_data(data):
         try:
             data = float(data)
-            return 1 if 30000000 > data >= 0 else False
+            return True if 30000000 > data >= 0 else False
         except:
             return False
 
     v = FEA.fea_number_value_list[conf.name]
     sorted_v = filter(lambda x: wash_data(x),
                       sorted([x.strip() for x in v if cst.isfloat(x)], key=lambda x: float(x)))
-
     def equal_freq(v):
         freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 20)] + [v[-1]] )),
                       key = lambda x: float(x))

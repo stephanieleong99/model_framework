@@ -9,14 +9,12 @@ from optparse import OptionParser
 from collections import defaultdict
 import gc
 
-data_path = '/Users/dongjian/data/user_action'
+data_path = '/Users/dongjian/data/user_action_tmp'
 out_path = '/Users/dongjian/data/user_action_out'
 
 SEP = '\t'
 TEST = "test"
 ONLINE = "online"
-
-NUM_WORKERS = 10
 
 input_list = ["uuid",
               "time",
@@ -29,6 +27,14 @@ action_list = ["poi/filter", "home/head", "poi/food/", "order/preview", "poi/sea
                "poi/getfilterconditions", "poicoupons/number", "order/update", "order/submit", "order/status",
                "Order/detail", "order/getuserorders", "order/getfoodlist", "/address/getaddr",
                "share/envelope"]
+
+
+def isfloat(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
 
 
 def find_action(raw):
@@ -87,7 +93,7 @@ class Action(object):
         return act
 
     def __str__(self):
-        return "\t".join(map(str, [self.name, self.time, self.para, self.order_id, self.raw]))
+        return "\t".join(map(str, [self.name, self.time,self.uuid, self.para, self.order_id, self.raw]))
 
 
 class OrderActions(object):
@@ -110,7 +116,7 @@ class OrderActions(object):
     time_before_submit = None
     visit_pois_before_submit = None
     search_times = None
-
+    valid = True
     # is_share = None
 
     def __init__(self, action_list):
@@ -126,16 +132,24 @@ class OrderActions(object):
 
     def cal_order_basic_info(self):
         order = self.order_act.raw.split("/")
-        self.poi_id = order[-2]
-        self.order_id = order[-1]
+
+        self.poi_id = order[-2] if isfloat(order[-2]) else None
+        self.order_id = order[-1] if isfloat(order[-1]) else None
         self.start_time = self.pure_action_list[0].time
         self.uuid = self.order_act.uuid
+
+    def is_valid(self):
+        if not self.poi_id or not self.order_id:
+            self.valid = False
 
     def pure_actions(self):
         self.submit_time = float(self.order_act.time)
 
         def pure(action):
-            if self.submit_time - float(action.time) < 3600:
+            time_cond = self.submit_time - float(action.time) < 3600
+            uuid_cond = self.uuid == action.uuid
+            cond = reduce(lambda x, y: x & y, [time_cond, uuid_cond])
+            if cond:
                 return True
 
         self.pure_action_list = filter(pure, self.action_list)
@@ -155,12 +169,11 @@ class OrderActions(object):
         self.search_times = len([x for x in self.pure_action_list if "search" in x.raw])
 
     def cal_things(self):
-
         self.pure_actions()
         self.cal_order_basic_info()
         self.cal_features()
+        self.is_valid()
 
-@profile
 def generate_data(mode):
     # online
     if mode == ONLINE:
@@ -169,115 +182,67 @@ def generate_data(mode):
     # test
     if mode == TEST:
         with codecs.open(data_path, 'r', 'utf8') as f:
-            for l in f.readlines():
+            for l in f.readlines()[1:]:
                 yield l
-
-
-def aggr_act_to_order(inputs):
-    '''
-    print
-    :return:
-    '''
-
-    actions = filter(lambda act: act.name, [Action.construct(x) for x in inputs])
-    actions = sorted(actions, key=lambda x: int(x.time))
-
-    def aggr(actions):
-        tmp_list = []
-        for act in actions:
-            if act.name == "order/submit":
-                tmp_list.append(act)
-                order_actions = OrderActions(tmp_list)
-                order_actions.action_list = tmp_list
-                order_actions.order_act = act
-                order_actions.uuid = act.uuid
-                yield order_actions
-                tmp_list = []
-            else:
-                tmp_list.append(act)
-                # print len(tmp_list),'af'
-
-    return list(aggr(actions))
-
-
-def split_orders(order_inputs):
-    """
-    uuid_inputs is a dict
-    分割单个uuid 对应的order_inputs,返回order_actions.
-    :param order_inputs:
-    :return:
-    """
-    orders = filter(lambda x: x, aggr_act_to_order(order_inputs))
-    return orders
-
-    # 聚合act到order
-
-@profile
-def generate_orderinput(mode):
-    tmp_list = []
-    tmp_uuid = None
-    i = 0
-    for l in generate_data(mode):
-        inp = OrderInput(l)
-        if inp.uuid != tmp_uuid:
-            # print i
-            if tmp_list:
-                i += 1
-                yield tmp_list
-            tmp_list = []
-            tmp_list.append(inp)
-            tmp_uuid = inp.uuid
-        else:
-            tmp_list.append(inp)
-
-
-def split_order_inputs_by_uuid(mode):
-    # uuid_inputs = defaultdict(list)
-    for order_inputs in generate_orderinput(mode):
-        # map(lambda inp: uuid_inputs[inp.uuid].append(inp), order_inputs)
-        yield order_inputs
 
 
 def print_orders(orders):
     print "\n".join([str(ord) for ord in orders])
 
 
-@profile
+# def pipeline(mode):
+#     for order_inputs in split_order_inputs_by_uuid(mode):
+#         orders = filter(lambda x: x, split_orders(order_inputs))
+#         if orders:
+#             map(lambda ord: ord.cal_things(), orders)
+#             print_orders(orders)
+#         del orders
+#         gc.collect()
+
+
+def wrap_action(line):
+    for l in line:
+        action = Action.construct(l)
+        if action.name:
+            yield action
+
+
+def wrap_order(actions):
+    tmp_list = []
+
+    for act in actions:
+        # print act
+        is_order = act.name == "order/submit" and  '/0' not in act.raw
+        if is_order:
+            tmp_list.append(act)
+            order_actions = OrderActions(tmp_list)
+            order_actions.action_list = tmp_list
+            order_actions.order_act = act
+            order_actions.uuid = act.uuid
+            yield order_actions
+            tmp_list = []
+        else:
+            tmp_list.append(act)
+
+
 def pipeline(mode):
-    for order_inputs in split_order_inputs_by_uuid(mode):
-        orders = filter(lambda x: x, split_orders(order_inputs))
-        if orders:
-            map(lambda ord: ord.cal_things(), orders)
-            print_orders(orders)
-        del orders
-        gc.collect()
-        # import time
-        # time.sleep(0.1)
-        # from guppy import hpy
-        # h = hpy()
-        # print h.heap()
+    input = (OrderInput(l) for l in generate_data(mode))
+    actions = (i for i in wrap_action(input))
+    order_action = (ord for ord in wrap_order(actions))
+
+    def ord_behave(ord):
+        ord.cal_things()
+        if ord.valid:
+            print str(ord)
+
+    map(ord_behave, order_action)
 
 
 '''
-1 读入所有数据.
-2 分割为uuidwc
-3 分割为订单. 返回的是order_actions.
-4 输出订单信息最后
-'''
-
-'''
-支持分割订单.
-提下单前平均访问时间
-下单前平均访问商家
-
-
-用户产出:
-
-提下单前平均访问时间
-下单前平均访问商家
-各url 访问次数
-下单平均时间间隔
-开始阶段访购率
+1. line -> order_input
+2. action
+3. order
+     获取到当前 submit的uuid,作为uuid. 将所有action 归到当前action.
 '''
 
 if __name__ == "__main__":
