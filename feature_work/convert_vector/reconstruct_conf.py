@@ -13,6 +13,7 @@ FEA.read_conf()
 data_file = os.path.join(root, cst.app_file)
 feas = os.path.join(root, "_".join([cst.app, "features_lines"]))
 rs_file = os.path.join(cst.app_root_path, 'feas_reconstruct')
+print rs_file
 open(rs_file, 'w').close()
 
 with codecs.open(data_file, "r", "utf8") as f:
@@ -29,6 +30,7 @@ def print_fea_vector(data, split_fea=True):
             fea = d.split("\t")
             for n, f in enumerate(fea):
                 n += 1
+                # print FEA.fea_number_dict
                 if n != FEA.fea_number_dict[label_name]:
                     fea_name = FEA.num_fea_dict[n]
                     FEA.fea_number_value_list[fea_name].append(f)
@@ -103,9 +105,9 @@ def one_conf(conf):
     def print_conf(conf, values):
         with codecs.open(rs_file, 'a', 'utf8') as f:
             f.write(
-                    ','.join([conf.name, conf.method,
-                              '#'.join([v.strip() for v in values]).replace(",", "0x32")]) + '\n')
-            print ','.join([conf.name, conf.method, '#'.join([v.strip() for v in values]).replace(",", "0x32")])
+                    ','.join(map(str,[conf.name, conf.method,conf.status,
+                              '#'.join([v.strip() for v in values]).replace(",", "0x32")])) + '\n')
+            print ','.join(map(str,[conf.name, conf.method,conf.status, '#'.join([v.strip() for v in values]).replace(",", "0x32")]))
 
     if conf.method == "none":
         print_conf(conf,[])
