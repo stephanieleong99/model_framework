@@ -91,7 +91,7 @@ class Feature(object):
     fea_conf = {}
     fea_number_dict = {}
     config = config
-    lock = False
+    lock = True
 
     def __init__(self):
         # self.read_conf()
@@ -116,7 +116,6 @@ class Feature(object):
                 if not l.startswith("#"): # 过掉注释
                     n += 1
                     cf = Conf(*l.split(","))
-                    print l,cf
                     cf.arrs_list = gen_cates(cst.parse_method(cf.method)[0], cf.ars)
                     self.fea_conf[cf.name] = cf
                     self.fea_number_dict[cf.name] = n

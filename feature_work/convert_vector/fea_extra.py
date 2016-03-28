@@ -5,6 +5,7 @@ import os
 from predifined_methods import Feature
 from utils.CONST import data_dir as root
 import utils.CONST as cst
+import multiprocessing as mp
 
 FEA = Feature()
 
@@ -19,13 +20,11 @@ with codecs.open(data_file, "r", "utf8") as f:
 label_name = "punish_status"
 
 
-
 def normal(fc, fea_value, fea):
     return FEA.__getattribute__(cst.parse_method(fc.method)[0])(fc.name, fea_value)
 
 
-def none(): return
-
+def none(fc, fea_value, fea): return
 
 def pair(fc, fea_value, fea):
     fea_name_list = fc.name.split("&")
@@ -34,7 +33,7 @@ def pair(fc, fea_value, fea):
 
 
 def one_line(line):
-    fea = line.split("\t")
+    fea = map(lambda x: x.strip(), line.split("\t"))
     one_lable = str(int(fea[FEA.fea_number_dict[label_name] - 1]))
 
     def one_fea((n, fea_value)):
@@ -50,10 +49,15 @@ def one_line(line):
         fc = FEA.fea_conf[fea_name]
         fun_key = {"cate": normal, "number": normal, "none": none, "pair": pair}
         return fun_key[fc.method](fc, fea_value, fea)
-    rs = map(one_fea, enumerate(fea, start=1))
-    data_line = " ".join(map(lambda x:":".join([x,"1"]),sorted(rs, key=lambda x: int(x[0]))))
-    return '\t'.join([one_lable,data_line])
+
+    rs = map(str, filter(lambda x: x, map(one_fea, enumerate(fea, start=1))))
+    data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x))))
+    return '\t'.join([one_lable, data_line])
 
 
+pool = mp.Pool(32)
+rs = pool.map(one_line, data)
+with codecs.open(feature_lines, 'w', 'utf8') as f:
+    f.write('\n'.join(rs))
 
-print_fea_vector(data, split_fea=True)
+
