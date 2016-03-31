@@ -65,7 +65,7 @@ class Conf(object):
     def parse_ars(self, conf_dict):
         def number(ars):
             self.values_list = ars.split("#")
-            self.feature_list = ["_".join([self.values_list[ar], self.values_list[ar+1]]) for ar in xrange(0,len(self.values_list)-1)]
+            self.feature_list = ["_".join([self.values_list [ar], self.values_list[ar+1]]) for ar in xrange(0,len(self.values_list)-1)]
 
         def cate(ars):
             self.values_list = ars.split("#")
@@ -81,7 +81,7 @@ class Conf(object):
         def none(ars):
             pass
 
-        locals().get(self.method)(self.ars)
+        locals().get(self.method.split("#")[0])(self.ars)
 
 
 class Feature(object):
@@ -124,6 +124,7 @@ class Feature(object):
 
     def add_feature(self, fea_name):
         # print fea_name,fea_name in self.feature_dict
+
         if fea_name in self.feature_dict:
             return self.feature_dict[fea_name]
         elif not self.lock:
@@ -149,7 +150,7 @@ class Feature(object):
         cf = self.fea_conf[fea_name]
         threds = [float(x) for x in cf.ars.strip().split("#")]
         l, h = trans_value_to_threds(threds, float(fea_value))
-        k = GOLD_SPLIT.join(map(str, [fea_name, "_".join(map(str, [l, h]))]))
+        k = GOLD_SPLIT.join(map(str, [fea_name, "_".join(map(lambda x:str(float('%0.3f' % float(x))), [l, h]))]))
         return self.add_feature(k)
 
     def pair(self, fea_name_list, fea_value_list):

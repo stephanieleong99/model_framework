@@ -24,6 +24,7 @@ label_name = "punish_status"
 
 c_args = {",": "0x32"}
 
+
 def print_fea_vector(data, split_fea=True):
     with codecs.open(feas, "w", "utf8") as file:
         for d in data:
@@ -61,12 +62,12 @@ def remove_dup(value_list):
             return "0"
         else:
             return value
-    value_list = map(wash_cate,value_list)
+
+    value_list = map(wash_cate, value_list)
     return list(set(value_list))
 
 
 def process_cate(conf, value):
-
     return remove_dup(FEA.fea_number_value_list[conf.name])
 
 
@@ -79,22 +80,26 @@ def process_number(conf, value):
             return False
 
     v = FEA.fea_number_value_list[conf.name]
+
     sorted_v = filter(lambda x: wash_data(x),
                       sorted([x.strip() for x in v if cst.isfloat(x)], key=lambda x: float(x)))
+
     def equal_freq(v):
-        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 20)] + [v[-1]] )),
-                      key = lambda x: float(x))
+        # print v,'v'
+        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 20)] + [v[-1]])),
+                      key=lambda x: float(x))
         return freq
 
     def equal_dis(v):
         l, h = float(v[0]), float(v[-1])
         l = l if l >= 0 else 0
-        return sorted(remove_dup([str(l + i * (h - l) / 10.0) for i in range(10 + 1)]), key=lambda x: float(x))
+        KEY = 20.0
+        return sorted(remove_dup([str(l + i * (h - l) / KEY) for i in range(int(KEY) + 1)]), key=lambda x: float(x))
 
-    data_huafen = locals().get("equal_{key}".format(**{"key": value}),None)
+    data_huafen = locals().get("equal_{key}".format(**{"key": value}), None)
     if not data_huafen:
         data_huafen = equal_freq
-    return data_huafen(sorted_v)
+    return map(lambda x:str(str(float('%0.3f' % float(x)))),data_huafen(sorted_v))
 
 
 def process_pair(conf, value):
@@ -105,12 +110,13 @@ def one_conf(conf):
     def print_conf(conf, values):
         with codecs.open(rs_file, 'a', 'utf8') as f:
             f.write(
-                    ','.join(map(str,[conf.name, conf.method,conf.status,
-                              '#'.join([v.strip() for v in values]).replace(",", "0x32")])) + '\n')
-            print ','.join(map(str,[conf.name, conf.method,conf.status, '#'.join([v.strip() for v in values]).replace(",", "0x32")]))
+                    ','.join(map(str, [conf.name, conf.method, conf.status,
+                                       '#'.join([v.strip() for v in values]).replace(",", "0x32")])) + '\n')
+            print ','.join(map(str, [conf.name, conf.method, conf.status,
+                                     '#'.join([v.strip() for v in values]).replace(",", "0x32")]))
 
     if conf.method == "none":
-        print_conf(conf,[])
+        print_conf(conf, [])
         return
     key, value = parse_method(conf.method)
     data_method = globals().get("process_{key}".format(**{"key": key}))
