@@ -32,7 +32,7 @@ def print_fea_vector(data, split_fea=True):
             for n, f in enumerate(fea):
                 n += 1
                 # print FEA.fea_number_dict
-                if n != FEA.fea_number_dict[label_name]:
+                if n != FEA.fea_number_dict[label_name] and n <= len(FEA.fea_number_dict) :
                     fea_name = FEA.num_fea_dict[n]
                     FEA.fea_number_value_list[fea_name].append(f)
 

@@ -14,8 +14,10 @@ GOLD_SPLIT = "__"
 FEA_ID_SPLIT = "&#&"
 FEA_SPILT = "&"
 
+
 def str2bool(v):
-  return v.lower() in ("yes", "true", "t", "1")
+    return v.lower() in ("yes", "true", "t", "1")
+
 
 def gen_cates(method, arrs):
     def cate(arrs):
@@ -51,32 +53,36 @@ def trans_value_to_threds(threds, value):
 
 
 class Conf(object):
-    def __init__(self, name, method, status,ars):
+    def __init__(self, name, method, status, ars):
         self.name = name
         self.method = method
         self.status = str2bool(status)
         self.ars = ars.strip()
         self.values_list = None
         self.feature_list = None
+        self.key = None
 
     def __str__(self):
-        return "_".join(map(str,[self.name, self.method, self.status,self.ars]))
+        return "_".join(map(str, [self.name, self.method, self.status, self.ars]))
 
     def parse_ars(self, conf_dict):
         def number(ars):
             self.values_list = ars.split("#")
-            self.feature_list = ["_".join([self.values_list [ar], self.values_list[ar+1]]) for ar in xrange(0,len(self.values_list)-1)]
+            self.feature_list = ["_".join([self.values_list[ar], self.values_list[ar + 1]]) for ar in
+                                 xrange(0, len(self.values_list) - 1)]
+            self.key_list = ["__".join([self.name,fea_value])for fea_value in self.feature_list]
 
         def cate(ars):
             self.values_list = ars.split("#")
             self.feature_list = self.values_list
+            self.key_list = ["__".join([self.name,fea_value])for fea_value in self.feature_list]
 
         def pair(ars):
             fea_name_list = self.name.split("&")
-            fea_values_list = [conf_dict[name].feature_list for name in fea_name_list]
-            product_list = itertools.product(*fea_values_list)
-            self.feature_list = ["_".join(x) for x in product_list]
-            self.name = "_".join(fea_name_list)
+            fea_key_list = [conf_dict[name].key_list for name in fea_name_list]
+            product_list = itertools.product(*fea_key_list)
+            self.key_list = ["#".join(x) for x in product_list]
+            self.name = "#".join(fea_name_list)
 
         def none(ars):
             pass
@@ -105,6 +111,7 @@ class Feature(object):
                     self.feature_dict[fea_name.strip()] = key.strip()
 
                 map(one_fea, file.readlines())
+                print self.feature_dict
             try:
                 self.feature_number = int(sorted(self.feature_dict.values(), key=lambda x: int(x), reverse=True)[0])
             except:
@@ -112,9 +119,10 @@ class Feature(object):
 
     def read_conf(self):
         with codecs.open(self.config, 'r', 'utf8') as f:
-            for n, l  in enumerate(f.readlines()) :
-                if not l.startswith("#"): # 过掉注释
+            for n, l in enumerate(f.readlines()):
+                if not l.startswith("#"):  # 过掉注释
                     n += 1
+                    print l
                     cf = Conf(*l.split(","))
                     cf.arrs_list = gen_cates(cst.parse_method(cf.method)[0], cf.ars)
                     self.fea_conf[cf.name] = cf
@@ -150,7 +158,8 @@ class Feature(object):
         cf = self.fea_conf[fea_name]
         threds = [float(x) for x in cf.ars.strip().split("#")]
         l, h = trans_value_to_threds(threds, float(fea_value))
-        k = GOLD_SPLIT.join(map(str, [fea_name, "_".join(map(lambda x:str(float('%0.3f' % float(x))), [l, h]))]))
+        k = GOLD_SPLIT.join(map(str, [fea_name, "_".join(map(lambda x: str(float('%0.3f' % float(x))), [l, h]))]))
+        # print "number",k,self.add_feature(k)
         return self.add_feature(k)
 
     def pair(self, fea_name_list, fea_value_list):
@@ -164,7 +173,7 @@ class Feature(object):
         fea_list = fea_name_list
         cf_list = [self.fea_conf[fea] for fea in fea_list]
         # 做pair
-        fea_name = "_".join([cf.name for cf in cf_list])
+        fea_name_list = [cf.name for cf in cf_list]
 
         def one_fea_value((cf, fea_value)):
             fea_value = float(fea_value.strip())
@@ -177,8 +186,9 @@ class Feature(object):
             if data_method == "cate":
                 return str(fea_value)
 
-        value_name = "_".join(map(one_fea_value, zip(cf_list, fea_value_list)))
-        key = GOLD_SPLIT.join([fea_name, value_name])
+        value_name_list = map(one_fea_value, zip(cf_list, fea_value_list))
+        key = "#".join(["__".join([fea,value]) for fea,value in zip(fea_name_list,value_name_list)])
+        # print "pair",key,self.add_feature(key)
         return self.add_feature(key)
 
     def origin(self, fea_name, fea_value):
@@ -203,4 +213,4 @@ if __name__ == "__main__":
     f.read_conf()
     import json
 
-    print json.dumps(f.num_fea_dict,indent=4)
+    print json.dumps(f.num_fea_dict, indent=4)

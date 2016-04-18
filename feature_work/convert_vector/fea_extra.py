@@ -13,6 +13,8 @@ FEA = Feature()
 FEA.config = os.path.join(cst.app_root_path, 'feas_reconstruct')
 FEA.read_conf()
 
+max_len = len(FEA.fea_number_dict)
+
 
 def init_arguments():
     def right_mode(p):
@@ -36,6 +38,8 @@ with codecs.open(data_file, "r", "utf8") as f:
     data = f.readlines()[1:]
 
 label_name = "punish_status"
+max_feature_id_num = str(sorted(FEA.feature_dict.values(), key=lambda x: int(x))[-1])
+print "max_feature_id_num", max_feature_id_num
 
 
 def normal(fc, fea_value, fea):
@@ -48,11 +52,12 @@ def none(fc, fea_value, fea): return
 def pair(fc, fea_value, fea):
     fea_name_list = fc.name.split("&")
     fea_value_list = [fea[num - 1] for num in [FEA.fea_number_dict[fea_name] for fea_name in fea_name_list]]
+    # print fea_name_list,fea_value_list,FEA.__getattribute__(fc.method)(fea_name_list, fea_value_list)
     return FEA.__getattribute__(fc.method)(fea_name_list, fea_value_list)
 
 
 def one_line(line):
-    fea = map(lambda x: x.strip(), line.split("\t"))
+    fea = map(lambda x: x.strip(), line.split("\t"))[:len(FEA.fea_number_dict)]
     one_lable = str(int(fea[FEA.fea_number_dict[label_name] - 1]))
 
     def one_fea((n, fea_value)):
@@ -67,14 +72,20 @@ def one_line(line):
         fea_name = FEA.num_fea_dict[n]
         fc = FEA.fea_conf[fea_name]
         fun_key = {"cate": normal, "number": normal, "none": none, "pair": pair}
+        # print fc.method.split("#")[0]
+
         return fun_key[fc.method.split("#")[0]](fc, fea_value, fea)
 
-    rs = map(str, filter(lambda x: x, map(one_fea, enumerate(fea, start=1))))
-    data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x))))
+    rs = map(str, filter(lambda x: x, map(one_fea, enumerate(fea + [0] * (max_len - len(fea)), start=1))))
+    if max_feature_id_num not in rs:
+        data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x)))
+                             + [max_feature_id_num + ":0"])
+    else:
+        data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x))))
     return '\t'.join([one_lable, data_line])
 
 
 pool = mp.Pool(32)
-rs = pool.map(one_line, data)
+rs = pool.map(one_line, data[0:])
 with codecs.open(feature_lines, 'w', 'utf8') as f:
     f.write('\n'.join(rs))
