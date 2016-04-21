@@ -12,11 +12,14 @@ feature_ext_root_path = os.path.join(root_path, "feature_work")
 cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
 config_path = os.path.join(feature_ext_root_path, "config")
 
-app = "user_features_test"
-app_file = "user_feature_raw_dup" #user_feature_raw_dup user_features_test
-test_file = "user_feature_raw_label_0" # user_features_test
-app_root_path = os.path.join(config_path, app)
+app_name = "user_features"
+version = "v_1_4__fix_pay_arrived_rate"
+app = "_".join([app_name, version])
+app_file = "user_feature_raw_dup"  # user_feature_raw_dup user_features_test
+test_file = "user_features_test"  # user_features_test
+app_root_path = os.path.join(config_path, app_name)
 label_name = "punish_status"
+
 
 def parse_method(method):
     items = method.split("#")

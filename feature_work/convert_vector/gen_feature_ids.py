@@ -21,6 +21,7 @@ feature_id = 1
 conf_dict = {}
 
 exclude_conf = set(["all_order_ratio__0.0_", ])
+# class FEA_
 
 
 def one_conf(line):

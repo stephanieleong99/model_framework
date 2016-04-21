@@ -53,10 +53,11 @@ def trans_value_to_threds(threds, value):
 
 
 class Conf(object):
-    def __init__(self, name, method, status, ars):
+    def __init__(self, name, method, filter_threds, status, ars):
         self.name = name
         self.method = method
         self.status = str2bool(status)
+        self.filter_threds = filter_threds.split("#") if filter_threds else None
         self.ars = ars.strip()
         self.values_list = None
         self.feature_list = None
@@ -70,12 +71,12 @@ class Conf(object):
             self.values_list = ars.split("#")
             self.feature_list = ["_".join([self.values_list[ar], self.values_list[ar + 1]]) for ar in
                                  xrange(0, len(self.values_list) - 1)]
-            self.key_list = ["__".join([self.name,fea_value])for fea_value in self.feature_list]
+            self.key_list = ["__".join([self.name, fea_value]) for fea_value in self.feature_list]
 
         def cate(ars):
             self.values_list = ars.split("#")
             self.feature_list = self.values_list
-            self.key_list = ["__".join([self.name,fea_value])for fea_value in self.feature_list]
+            self.key_list = ["__".join([self.name, fea_value]) for fea_value in self.feature_list]
 
         def pair(ars):
             fea_name_list = self.name.split("&")
@@ -176,9 +177,10 @@ class Feature(object):
         fea_name_list = [cf.name for cf in cf_list]
 
         def one_fea_value((cf, fea_value)):
-            fea_value = float(fea_value.strip())
+            fea_value = fea_value.strip()
             data_method = cf.method.split("#")[0]
             if data_method == "number":
+                fea_value = float(fea_value)
                 # print cf.arrs_list, fea_value
                 # print trans_value_to_threds(cf.arrs_list, fea_value)
                 return "_".join([str(x) for x in trans_value_to_threds(cf.arrs_list, fea_value)])
@@ -187,8 +189,8 @@ class Feature(object):
                 return str(fea_value)
 
         value_name_list = map(one_fea_value, zip(cf_list, fea_value_list))
-        key = "#".join(["__".join([fea,value]) for fea,value in zip(fea_name_list,value_name_list)])
-        # print "pair",key,self.add_feature(key)
+        key = "#".join(["__".join([fea, value]) for fea, value in zip(fea_name_list, value_name_list)])
+
         return self.add_feature(key)
 
     def origin(self, fea_name, fea_value):

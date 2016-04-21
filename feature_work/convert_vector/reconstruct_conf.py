@@ -32,7 +32,7 @@ def print_fea_vector(data, split_fea=True):
             for n, f in enumerate(fea):
                 n += 1
                 # print FEA.fea_number_dict
-                if n != FEA.fea_number_dict[label_name] and n <= len(FEA.fea_number_dict) :
+                if n != FEA.fea_number_dict[label_name] and n <= len(FEA.fea_number_dict):
                     fea_name = FEA.num_fea_dict[n]
                     FEA.fea_number_value_list[fea_name].append(f)
 
@@ -68,7 +68,8 @@ def remove_dup(value_list):
 
 
 def process_cate(conf, value):
-    return remove_dup(FEA.fea_number_value_list[conf.name])
+    filter_sets = set(conf.filter_threds) if conf.filter_threds else []
+    return filter(lambda x: x not in filter_sets, remove_dup(FEA.fea_number_value_list[conf.name]))
 
 
 def process_number(conf, value):
@@ -81,25 +82,29 @@ def process_number(conf, value):
 
     v = FEA.fea_number_value_list[conf.name]
 
-    sorted_v = filter(lambda x: wash_data(x),
-                      sorted([x.strip() for x in v if cst.isfloat(x)], key=lambda x: float(x)))
+    after_sorted = filter(lambda x: wash_data(x),
+                          sorted([x.strip() for x in v if cst.isfloat(x)], key=lambda x: float(x)))
+    after_filtered = filter(lambda x: not float(conf.filter_threds[0]) <= float(x) <= float(conf.filter_threds[1]),
+                            after_sorted) if conf.filter_threds else after_sorted
+    sorted_v = after_filtered
 
     def equal_freq(v):
         # print v,'v'
-        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 20)] + [v[-1]])),
+        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 12)] + [v[-1]])),
                       key=lambda x: float(x))
         return freq
 
     def equal_dis(v):
         l, h = float(v[0]), float(v[-1])
         l = l if l >= 0 else 0
-        KEY = 20.0
+        KEY = 12.0
         return sorted(remove_dup([str(l + i * (h - l) / KEY) for i in range(int(KEY) + 1)]), key=lambda x: float(x))
 
     data_huafen = locals().get("equal_{key}".format(**{"key": value}), None)
     if not data_huafen:
         data_huafen = equal_freq
-    return map(lambda x:str(str(float('%0.3f' % float(x)))),data_huafen(sorted_v))
+        # print data_huafen(sorted_v)
+    return sorted(list(set(map(lambda x: str(str(float('%0.3f' % float(x)))), data_huafen(sorted_v)))),key=lambda x:float(x))
 
 
 def process_pair(conf, value):
@@ -110,7 +115,7 @@ def one_conf(conf):
     def print_conf(conf, values):
         with codecs.open(rs_file, 'a', 'utf8') as f:
             f.write(
-                    ','.join(map(str, [conf.name, conf.method, conf.status,
+                    ','.join(map(str, [conf.name, conf.method, "#".join(conf.filter_threds) if conf.filter_threds else "",conf.status,
                                        '#'.join([v.strip() for v in values]).replace(",", "0x32")])) + '\n')
             print ','.join(map(str, [conf.name, conf.method, conf.status,
                                      '#'.join([v.strip() for v in values]).replace(",", "0x32")]))
