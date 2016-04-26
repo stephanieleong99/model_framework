@@ -1,6 +1,7 @@
 # encoding:utf8
 import os
 import codecs
+import bisect
 
 from utils.CONST import data_dir as root
 import json
@@ -25,7 +26,7 @@ def gen_cates(method, arrs):
 
     def number(arrs):
         if len(arrs) <= 1: return []
-        arrs_list = [float(x) for x in arrs.split("#")]
+        arrs_list = [float(x) for x in arrs.strip().split("#")]
         return arrs_list
 
     def pair(arrs):
@@ -37,19 +38,38 @@ def gen_cates(method, arrs):
     return locals().get(method)(arrs)
 
 
-def trans_value_to_threds(threds, value):
-    threds = sorted(threds, key=lambda x: float(x))
-    bigram = [(float(threds[n]), float(threds[n + 1])) for n in xrange(0, len(threds) - 1)]
-    if len(threds) == 1:
-        return threds[0], threds[0]
-    for l, h in bigram:
-        if l <= value < h:
-            return l, h
-    else:
-        if value >= threds[-1]:
-            return threds[-2], threds[-1]
-        if value < threds[0]:
-            return threds[0], threds[1]
+#
+# def trans_value_to_threds(threds, value):
+#     threds = map(float, threds)
+#     index = bisect.bisect_left(threds, float(value))
+#     print threds, index, value
+#     if len(threds) == 1:
+#         return index, index
+#     if index == len(threds):
+#         return index - 1, index
+#
+#     return index, index + 1
+
+def trans_value_to_threds(inp_list, tgt, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError("lo must be non-negative")
+    if hi is None:
+        hi = len(inp_list)
+    if tgt > inp_list[hi - 1] or tgt < inp_list[lo]:
+        return None
+    if tgt == inp_list[lo]:
+        return inp_list[0], inp_list[0]
+    if tgt == inp_list[hi - 1]:
+        return inp_list[hi - 2], inp_list[hi - 1]
+
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if inp_list[mid] < tgt:
+            lo = mid + 1
+        else:
+            hi = mid
+
+    return inp_list[lo - 1], inp_list[lo]
 
 
 class Conf(object):
@@ -62,6 +82,11 @@ class Conf(object):
         self.values_list = None
         self.feature_list = None
         self.key = None
+        self.pre_cal()
+
+    def pre_cal(self):
+        # precalculate
+        self.arrs_list = gen_cates(cst.parse_method(self.method)[0], self.ars)
 
     def __str__(self):
         return "_".join(map(str, [self.name, self.method, self.status, self.ars]))
@@ -112,7 +137,6 @@ class Feature(object):
                     self.feature_dict[fea_name.strip()] = key.strip()
 
                 map(one_fea, file.readlines())
-                print self.feature_dict
             try:
                 self.feature_number = int(sorted(self.feature_dict.values(), key=lambda x: int(x), reverse=True)[0])
             except:
@@ -157,11 +181,13 @@ class Feature(object):
 
         fea_value = wash(fea_value)
         cf = self.fea_conf[fea_name]
-        threds = [float(x) for x in cf.ars.strip().split("#")]
-        l, h = trans_value_to_threds(threds, float(fea_value))
-        k = GOLD_SPLIT.join(map(str, [fea_name, "_".join(map(lambda x: str(float('%0.3f' % float(x))), [l, h]))]))
-        # print "number",k,self.add_feature(k)
-        return self.add_feature(k)
+        rs = trans_value_to_threds(cf.arrs_list, float(fea_value))
+        if rs:
+            l, h = rs
+            k = GOLD_SPLIT.join([fea_name, "_".join(map(lambda x: str(float('%0.3f' % float(x))), [l, h]))])
+            return self.add_feature(k)
+        else:
+                    return None
 
     def pair(self, fea_name_list, fea_value_list):
 
@@ -181,17 +207,21 @@ class Feature(object):
             data_method = cf.method.split("#")[0]
             if data_method == "number":
                 fea_value = float(fea_value)
-                # print cf.arrs_list, fea_value
-                # print trans_value_to_threds(cf.arrs_list, fea_value)
-                return "_".join([str(x) for x in trans_value_to_threds(cf.arrs_list, fea_value)])
+                rs = trans_value_to_threds(cf.arrs_list, fea_value)
+                if rs:
+                    return "_".join([str(x) for x in rs])
 
             if data_method == "cate":
                 return str(fea_value)
 
         value_name_list = map(one_fea_value, zip(cf_list, fea_value_list))
-        key = "#".join(["__".join([fea, value]) for fea, value in zip(fea_name_list, value_name_list)])
 
-        return self.add_feature(key)
+        def check_value_list(inp_list):
+            return min(inp_list) != None
+
+        if check_value_list(value_name_list):
+            key = "#".join(["__".join([fea, value]) for fea, value in zip(fea_name_list, value_name_list)])
+            return self.add_feature(key)
 
     def origin(self, fea_name, fea_value):
         k = fea_name
@@ -213,6 +243,6 @@ class Feature(object):
 if __name__ == "__main__":
     f = Feature()
     f.read_conf()
-    import json
+    # import json
 
-    print json.dumps(f.num_fea_dict, indent=4)
+    # print json.dumps(f.num_fea_dict, indent=4)

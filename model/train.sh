@@ -2,7 +2,7 @@
 
 
 train_data=user_feature_raw
-version=v_1_4__fix_pay_arrived_rate
+version=v_1_11__fix_user_suggest_type
 app_name=user_features
 app=${app_name}_${version}
 features_lines=${app_name}_${version}_features_lines
@@ -13,15 +13,14 @@ da && cp user_feature_raw user_feature_raw_bk
 #将neg_type 为1 3 的转为punish_status = 1
 da&& awk -F '\t' 'BEGIN{OFS="\t"}{if($(NF-1)==1 || $(NF-1)==3 || $(NF-1)==0 || $(NF-1)=="NULL"){print $0}}' user_feature_raw > tmp && mv tmp user_feature_raw
 da&& awk -F '\t' 'BEGIN{OFS="\t"}{if(($(NF-1)==1 ||$(NF-1)==3) && $(NF-1)!= "NULL" && NR!=1){$NF=1;print$0}else{print $0}}' user_feature_raw > tmp && mv tmp user_feature_raw
+#过滤数据
+da && awk -F '\t' 'BEGIN{OFS="\t"}{if($NF==1){if($31>0.6){print $0}} else {if($NF==0){if( $22 < 30000 && $27 < 20 && $26 <22 &&$31 < 25&& $37<15){print $0}}}}' ${train_data} > tmp && mv tmp ${train_data}
+
 #sort
 da && awk -F '\t' '{if($NF==1){print $0}else{phone_list[$1]=$0}}END{for(k in phone_list){print phone_list[k]}}' $train_data > tmp && mv tmp $train_data
 #dup
 cat $train_data | awk 'BEGIN{pos_num=800000;}{if($NF==1){for(i=0;i<40;i++){print $0;}} else if(pos_num>=0){ print $0;pos_num-=1}}' > ${train_data}_dup
 cat ${train_data}_dup| awk '{print $NF}'|sort|uniq -c #校验数据
-
-#过滤数据
-da && awk -F '\t' 'BEGIN{OFS="\t"}{if($NF==1){print $0} else {if($NF==0){if( $22 < 30000 && $27 < 20 && $26 <22 &&$31 < 25&& $37<15){print $0}}}}' ${train_data}_dup > tmp && mv tmp ${train_data}_dup
-#cat ${train_data}_dup| awk '{print $NF}'|sort|uniq -c #校验数据
 
 #变量定义d
 
@@ -44,7 +43,7 @@ head -n 200000 whole_file > test_file
 cat test_file| cut -b 1 > y_test
 #train
 
-/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train -v 5 -e 0.1 -s 7 -c 0.5  ${features_lines}
+da &&/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train -v 5 -e 0.1 -s 7 -c 0.5  ${features_lines}
 da && rm user_feature_model
 /Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train  -e 0.1 -s 7 -c 0.5 /Users/dongjian/data/${features_lines} /Users/dongjian/data/user_feature_model
 /Users/dongjian/PycharmProjects/UserDetected/model/liblinear/predict -b 1 /Users/dongjian/data/test_file /Users/dongjian/data/user_feature_model /Users/dongjian/data/predict
@@ -96,7 +95,7 @@ wc ${features_lines}_rs_all
 
 #csv
 tr -s "," "#" < ${features_lines}_rs_all |awk -F '\t' 'BEGIN{OFS=","}{$1=$1;print $0}'  > ${features_lines}_rs_prob.csv
-(da&& awk 'BEGIN{srand()}{b[rand()NR]=$0}END{for(x in b)print b[x]}' ${features_lines}_rs_prob.csv > tmp && head -1 ${features_lines}_rs_prob.csv|cat - tmp > tmp_1 && head -n 1 tmp_1 && tail -n+2  tmp_1|tail -n 30|sort -t$'\t' -k 1rn) >  ${features_lines}_rs_prob_30.csv
+(da&& awk 'BEGIN{srand()}{b[rand()NR]=$0}END{for(x in b)print b[x]}' ${features_lines}_rs_prob.csv > tmp && head -1 ${features_lines}_rs_prob.csv|cat - tmp > tmp_1 && head -n 1 tmp_1 && tail -n+2  tmp_1|tail -n 60|sort -t$'\t' -k 1rn) >  ${features_lines}_rs_prob_30.csv
 
 #assist
 

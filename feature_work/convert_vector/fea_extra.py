@@ -57,8 +57,9 @@ def pair(fc, fea_value, fea):
 
 
 def one_line(line):
-    fea = map(lambda x: x.strip(), line.split("\t"))[:len(FEA.fea_number_dict)]
-    one_lable = str(int(fea[FEA.fea_number_dict[label_name] - 1]))
+    with cst.TimeRecord("initial") as _:
+        fea = map(lambda x: x.strip(), line.split("\t"))[:len(FEA.fea_number_dict)]
+        one_lable = str(int(fea[FEA.fea_number_dict[label_name] - 1]))
 
     def one_fea((n, fea_value)):
         '''
@@ -72,20 +73,27 @@ def one_line(line):
         fea_name = FEA.num_fea_dict[n]
         fc = FEA.fea_conf[fea_name]
         fun_key = {"cate": normal, "number": normal, "none": none, "pair": pair}
-        # print fc.method.split("#")[0]
 
         return fun_key[fc.method.split("#")[0]](fc, fea_value, fea)
 
-    rs = map(str, filter(lambda x: x, map(one_fea, enumerate(fea + [0] * (max_len - len(fea)), start=1))))
-    if max_feature_id_num not in rs:
-        data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x)))
-                             + [max_feature_id_num + ":0"])
-    else:
-        data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x))))
-    return '\t'.join([one_lable, data_line])
+    with cst.TimeRecord("one_line") as _:
+        rs = map(str, filter(lambda x: x, map(one_fea, enumerate(fea + [0] * (max_len - len(fea)), start=1))))
 
+    with cst.TimeRecord("join") as _:
+        if max_feature_id_num not in rs:
+            data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x)))
+                                 + [max_feature_id_num + ":0"])
+        else:
+            data_line = " ".join(map(lambda x: ":".join([x, "1"]), sorted(rs, key=lambda x: int(x))))
+        return '\t'.join([one_lable, data_line])
+import  time
+t = time.time()
+with cst.TimeRecord("total") as _:
 
-pool = mp.Pool(32)
-rs = pool.map(one_line, data[0:])
-with codecs.open(feature_lines, 'w', 'utf8') as f:
-    f.write('\n'.join(rs))
+    pool = mp.Pool(32)
+    rs = pool.map(one_line, data)
+    # print zip(xrange(1,len(data[1:2][0].split("\t"))),data[1:2][0].split("\t"))
+    with codecs.open(feature_lines, 'w', 'utf8') as f:
+        # print rs,"rs"
+        f.write('\n'.join(rs))
+    # print time.time() - t

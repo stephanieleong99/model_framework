@@ -1,5 +1,6 @@
 import os
 import argparse
+import time
 
 # data
 data_dir = "/Users/dongjian/data"
@@ -13,7 +14,7 @@ cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
 config_path = os.path.join(feature_ext_root_path, "config")
 
 app_name = "user_features"
-version = "v_1_4__fix_pay_arrived_rate"
+version = "v_1_16__fix_mean_visit_fir_one_poi"
 app = "_".join([app_name, version])
 app_file = "user_feature_raw_dup"  # user_feature_raw_dup user_features_test
 test_file = "user_features_test"  # user_features_test
@@ -21,13 +22,39 @@ app_root_path = os.path.join(config_path, app_name)
 label_name = "punish_status"
 
 
+class TimeRecord(object):
+    t = None
+
+    def __init__(self, name):
+        self.t = time.time()
+        self.name = name
+
+    def __enter__(self):
+        pass
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # print "{name}   cost {time} seconds".format(**{"name": self.name, "time": time.time() - self.t})
+        pass
+
+def safe_get(tmp_list, index, default):
+    try:
+        return tmp_list[index]
+    except IndexError:
+        return default
+
+
 def parse_method(method):
     items = method.split("#")
-    if len(items) > 1:
-        key, value = items
-    else:
-        key, value = items[0], "None"
-    return key, value
+
+    if safe_get(items, 1, None) == None:
+        items.append("freq")
+
+    if safe_get(items, 2, None) == None:
+        items.append(12)
+
+    items[2] = int(items[2])
+    key, value, fraction = items
+    return key, value, fraction
 
 
 def init_arguments():

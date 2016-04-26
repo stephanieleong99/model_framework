@@ -47,13 +47,6 @@ def generate_conf(fea_number_value_list):
         yield conf
 
 
-def parse_method(method):
-    items = method.split("#")
-    if len(items) > 1:
-        key, value = items
-    else:
-        key, value = items[0], "None"
-    return key, value
 
 
 def remove_dup(value_list):
@@ -67,12 +60,12 @@ def remove_dup(value_list):
     return list(set(value_list))
 
 
-def process_cate(conf, value):
+def process_cate(conf, value,frac):
     filter_sets = set(conf.filter_threds) if conf.filter_threds else []
     return filter(lambda x: x not in filter_sets, remove_dup(FEA.fea_number_value_list[conf.name]))
 
 
-def process_number(conf, value):
+def process_number(conf, value,frac):
     def wash_data(data):
         try:
             data = float(data)
@@ -88,26 +81,26 @@ def process_number(conf, value):
                             after_sorted) if conf.filter_threds else after_sorted
     sorted_v = after_filtered
 
-    def equal_freq(v):
+    def equal_freq(v,frac):
         # print v,'v'
-        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / 12)] + [v[-1]])),
+        freq = sorted(list(set([v[index] for index in range(1, len(v), len(v) / frac)] + [v[-1]])),
                       key=lambda x: float(x))
         return freq
 
-    def equal_dis(v):
+    def equal_dis(v,frac):
         l, h = float(v[0]), float(v[-1])
         l = l if l >= 0 else 0
-        KEY = 12.0
+        KEY = frac
         return sorted(remove_dup([str(l + i * (h - l) / KEY) for i in range(int(KEY) + 1)]), key=lambda x: float(x))
 
     data_huafen = locals().get("equal_{key}".format(**{"key": value}), None)
     if not data_huafen:
         data_huafen = equal_freq
         # print data_huafen(sorted_v)
-    return sorted(list(set(map(lambda x: str(str(float('%0.3f' % float(x)))), data_huafen(sorted_v)))),key=lambda x:float(x))
+    return sorted(list(set(map(lambda x: str(str(float('%0.3f' % float(x)))), data_huafen(sorted_v,frac)))),key=lambda x:float(x))
 
 
-def process_pair(conf, value):
+def process_pair(conf, value,frac):
     return []
 
 
@@ -123,9 +116,9 @@ def one_conf(conf):
     if conf.method == "none":
         print_conf(conf, [])
         return
-    key, value = parse_method(conf.method)
+    key, value,frac = cst.parse_method(conf.method)
     data_method = globals().get("process_{key}".format(**{"key": key}))
-    rs = data_method(conf, value)
+    rs = data_method(conf, value,frac)
     print_conf(conf, rs)
 
 

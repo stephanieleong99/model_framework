@@ -47,3 +47,5 @@ with codecs.open(feature_lines_with_info, 'w', 'utf8') as f:
     rs = pool.map(one_line, feature_lines)
     # print rs[0]
     f.write('\n'.join(rs))
+    print len(feature_lines),len(rs)
+    print feature_lines[-1],rs[-1]
