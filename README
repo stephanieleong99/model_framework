@@ -1,9 +1,12 @@
 feature_ext 是特征抽取框架
 model 为模型工程
 
-plan:
+done:
 重构特征抽取部分代码.
 增加参数配置.
+
+plan:
+将各种方法抽象成类.(抽象cate,number,origin)
 增加model 模型相关工作.
 增加特征分组.
 增加外部模块支持.
