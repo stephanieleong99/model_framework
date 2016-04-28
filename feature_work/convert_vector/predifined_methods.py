@@ -35,20 +35,13 @@ def gen_cates(method, arrs):
     def none(arrs):
         return
 
+    def origin(arrs):
+        if len(arrs) <= 1: return []
+        arrs_list = [float(x) for x in arrs.strip().split("#")]
+        return arrs_list
+
     return locals().get(method)(arrs)
 
-
-#
-# def trans_value_to_threds(threds, value):
-#     threds = map(float, threds)
-#     index = bisect.bisect_left(threds, float(value))
-#     print threds, index, value
-#     if len(threds) == 1:
-#         return index, index
-#     if index == len(threds):
-#         return index - 1, index
-#
-#     return index, index + 1
 
 def trans_value_to_threds(inp_list, tgt, lo=0, hi=None):
     if lo < 0:
@@ -113,6 +106,9 @@ class Conf(object):
         def none(ars):
             pass
 
+        def origin(ars):
+            self.key_list = [self.name]
+
         locals().get(self.method.split("#")[0])(self.ars)
 
 
@@ -139,8 +135,8 @@ class Feature(object):
                 map(one_fea, file.readlines())
             try:
                 self.feature_number = int(sorted(self.feature_dict.values(), key=lambda x: int(x), reverse=True)[0])
-            except:
-                pass
+            except  Exception as e:
+                print e
 
     def read_conf(self):
         with codecs.open(self.config, 'r', 'utf8') as f:
@@ -155,17 +151,17 @@ class Feature(object):
         self.num_fea_dict = {self.fea_number_dict[x]: x for x in self.fea_number_dict}
         self.fea_number_value_list = {x: list() for x in self.fea_number_dict}
 
-    def add_feature(self, fea_name):
+    def add_feature(self, fea_name, fea_value=1):
         # print fea_name,fea_name in self.feature_dict
 
         if fea_name in self.feature_dict:
-            return self.feature_dict[fea_name]
+            return self.feature_dict[fea_name], fea_value
         elif not self.lock:
             self.feature_number += 1
             self.feature_dict[fea_name] = self.feature_number
         else:
             return None
-        return self.feature_number
+        return self.feature_number, fea_value
 
     def cate(self, fea_name, fea_value):
         fea_value = "0" if fea_value == "NULL" else fea_value
@@ -187,7 +183,7 @@ class Feature(object):
             k = GOLD_SPLIT.join([fea_name, "_".join(map(lambda x: str(float('%0.3f' % float(x))), [l, h]))])
             return self.add_feature(k)
         else:
-                    return None
+            return None
 
     def pair(self, fea_name_list, fea_value_list):
 
@@ -225,12 +221,13 @@ class Feature(object):
 
     def origin(self, fea_name, fea_value):
         k = fea_name
-        if k in self.feature_dict:
-            return self.feature_dict[k]
-        else:
-            self.feature_number += 1
-            self.feature_dict[k] = self.feature_number
-        return self.feature_number
+
+        cf = self.fea_conf[fea_name]
+        l, h = map(lambda x: float('%0.3f' % float(x)), cf.arrs_list)
+        fea_value = cst.wash(fea_value)
+        fea_value = float('%0.3f' % float(fea_value))
+        if l <= fea_value <= h:
+            return self.add_feature(fea_name, fea_value)
 
     def print_feas(self):
         with codecs.open(self.fea_id_out, 'wb', 'utf8') as f:
@@ -243,6 +240,3 @@ class Feature(object):
 if __name__ == "__main__":
     f = Feature()
     f.read_conf()
-    # import json
-
-    # print json.dumps(f.num_fea_dict, indent=4)

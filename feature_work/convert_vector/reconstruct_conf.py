@@ -27,7 +27,7 @@ c_args = {",": "0x32"}
 
 def print_fea_vector(data, split_fea=True):
     with codecs.open(feas, "w", "utf8") as file:
-        for d in data:
+        for d in data[:]:
             fea = d.split("\t")
             for n, f in enumerate(fea):
                 n += 1
@@ -64,14 +64,15 @@ def process_cate(conf, value,frac):
     filter_sets = set(conf.filter_threds) if conf.filter_threds else []
     return filter(lambda x: x not in filter_sets, remove_dup(FEA.fea_number_value_list[conf.name]))
 
-
-def process_number(conf, value,frac):
-    def wash_data(data):
+def wash_data(data):
         try:
             data = float(data)
             return True if 30000000 > data >= 0 else False
         except:
             return False
+
+def process_number(conf, value,frac):
+
 
     v = FEA.fea_number_value_list[conf.name]
 
@@ -97,8 +98,15 @@ def process_number(conf, value,frac):
     if not data_huafen:
         data_huafen = equal_freq
         # print data_huafen(sorted_v)
-    return sorted(list(set(map(lambda x: str(str(float('%0.3f' % float(x)))), data_huafen(sorted_v,frac)))),key=lambda x:float(x))
+    return sorted(list(set(map(lambda x: str(float('%0.3f' % float(x))), data_huafen(sorted_v,frac)))),key=lambda x:float(x))
 
+def process_origin(conf,value,frac):
+    v = FEA.fea_number_value_list[conf.name]
+    after_sorted = filter(lambda x: wash_data(x),
+                           sorted([x.strip() for x in v if cst.isfloat(x)], key=lambda x: float(x)))
+    after_filtered = filter(lambda x: not float(conf.filter_threds[0]) <= float(x) <= float(conf.filter_threds[1]),
+                            after_sorted) if conf.filter_threds else after_sorted
+    return map(lambda x:str(float('%0.3f' % float(x))),[after_filtered[0],after_filtered[-1]])
 
 def process_pair(conf, value,frac):
     return []
@@ -110,10 +118,10 @@ def one_conf(conf):
             f.write(
                     ','.join(map(str, [conf.name, conf.method, "#".join(conf.filter_threds) if conf.filter_threds else "",conf.status,
                                        '#'.join([v.strip() for v in values]).replace(",", "0x32")])) + '\n')
-            print ','.join(map(str, [conf.name, conf.method, conf.status,
+            print ','.join(map(str, [conf.name, conf.method, conf.status,"#".join(conf.filter_threds) if conf.filter_threds else "",
                                      '#'.join([v.strip() for v in values]).replace(",", "0x32")]))
 
-    if conf.method == "none":
+    if conf.method == "none" or conf.name == cst.label_name:
         print_conf(conf, [])
         return
     key, value,frac = cst.parse_method(conf.method)

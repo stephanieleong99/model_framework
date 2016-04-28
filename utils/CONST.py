@@ -14,12 +14,19 @@ cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
 config_path = os.path.join(feature_ext_root_path, "config")
 
 app_name = "user_features"
-version = "v_1_16__fix_mean_visit_fir_one_poi"
+version = "v_17_"
 app = "_".join([app_name, version])
 app_file = "user_feature_raw_dup"  # user_feature_raw_dup user_features_test
 test_file = "user_features_test"  # user_features_test
 app_root_path = os.path.join(config_path, app_name)
 label_name = "punish_status"
+
+
+def wash(value):
+    if value == "NULL":
+        value = 0
+    value = float(value)
+    return 0 if value < 0 or value > 50000000 else value
 
 
 class TimeRecord(object):
@@ -35,6 +42,7 @@ class TimeRecord(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         # print "{name}   cost {time} seconds".format(**{"name": self.name, "time": time.time() - self.t})
         pass
+
 
 def safe_get(tmp_list, index, default):
     try:
