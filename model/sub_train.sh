@@ -44,3 +44,7 @@ wc ${features_lines}_rs_all
 cd ~/data && tr -s "," "#" < ${features_lines}_rs_all |awk -F '\t' 'BEGIN{OFS=","}{$1=$1;print $0}'  > ${features_lines}_rs_prob.csv
 (cd ~/data&& awk 'BEGIN{srand()}{b[rand()NR]=$0}END{for(x in b)print b[x]}' ${features_lines}_rs_prob.csv > tmp && head -1 ${features_lines}_rs_prob.csv|cat - tmp > tmp_1 && head -n 1 tmp_1 && tail -n+2  tmp_1|tail -n 60|sort -t$'\t' -k 1rn) >  ${features_lines}_rs_prob_60.csv
 cd ~/data && echo ${features_lines}_rs_prob_60.csv && open ${features_lines}_rs_prob_60.csv
+
+
+(cd ~/data&& awk 'BEGIN{srand()}{b[rand()NR]=$0}END{for(x in b)print b[x]}' user_features_v_1_16__fix_mean_visit_fir_one_poi_features_lines_rs_prob.csv.tmp > tmp && head -1 user_features_v_1_16__fix_mean_visit_fir_one_poi_features_lines_rs_prob.csv|cat - tmp > tmp_1 && head -n 1 tmp_1 && tail -n+2  tmp_1|tail -n 60|sort -t$'\t' -k 1rn) >  user_features_v_1_16__fix_mean_visit_fir_one_poi_features_lines_rs_prob_60.csv
+cd ~/data && echo user_features_v_1_16__fix_mean_visit_fir_one_poi_features_lines_rs_prob_60.csv && open user_features_v_1_16__fix_mean_visit_fir_one_poi_features_lines_rs_prob_60.csv
