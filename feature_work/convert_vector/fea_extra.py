@@ -90,6 +90,6 @@ import time
 t = time.time()
 with cst.TimeRecord("total") as _:
     pool = mp.Pool(32)
-    rs = map(one_line, data)
+    rs = pool.map(one_line, data)
     with codecs.open(feature_lines, 'w', 'utf8') as f:
         f.write('\n'.join(rs))
