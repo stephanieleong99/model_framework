@@ -1,7 +1,7 @@
 export PYTHONPATH=$PYTHONPATH:/Users/lt/PycharmProjects/model_framework/
 train_data=user_feature_raw
-version=v_1_test_origin
-app_name=user_feature_origin
+version=v_1_test
+app_name=user_features
 app=${app_name}_${version}
 features_lines=${app_name}_${version}_features_lines
 test_file=user_features_test
