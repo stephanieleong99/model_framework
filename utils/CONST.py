@@ -3,7 +3,7 @@ import argparse
 import time
 
 # data
-data_dir = "/Users/dongjian/data"
+data_dir = "/Users/lt/data"
 
 # code
 root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,6 +18,7 @@ version = "v_1_test_origin"
 app = "_".join([app_name, version])
 app_file = "user_feature_raw_dup"  # user_feature_raw_dup user_features_test
 test_file = "user_features_test"  # user_features_test
+# /Users/lt/PycharmProjects/model_framework/feature_work/config/user_feature_origin
 app_root_path = os.path.join(config_path, app_name)
 label_name = "punish_status"
 
@@ -25,6 +26,7 @@ label_name = "punish_status"
 def wash(value):
     if value == "NULL":
         value = 0
+    print "------->" + value
     value = float(value)
     return 0 if value < 0 or value > 50000000 else value
 
@@ -85,7 +87,8 @@ def isfloat(value):
 
 if __name__ == "__main__":
     # global app,app_file
-    args = init_arguments()
-    app = args.app
-    app_file = args.app_file
-    print app, app_file
+    # args = init_arguments()
+    # app = args.app
+    # app_file = args.app_file
+    # print app, app_file
+    print app_root_path

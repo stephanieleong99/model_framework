@@ -9,7 +9,7 @@ import multiprocessing as mp
 import optparse
 
 FEA = Feature()
-
+# /Users/lt/PycharmProjects/model_framework/feature_work/config/user_feature_origin/feas_reconstruct
 FEA.config = os.path.join(cst.app_root_path, 'feas_reconstruct')
 FEA.read_conf()
 
@@ -30,8 +30,10 @@ def init_arguments():
 
 
 args = init_arguments()[0]
+# cst.app_file = user_feature_raw_dup
 file = cst.app_file if args.mode == "train" else cst.test_file
 data_file = os.path.join(root, file)
+# /Users/lt/data/user_feature_origin_v_1_test_origin_features_lines
 feature_lines = os.path.join(root, "_".join([cst.app, "features_lines"]))
 
 with codecs.open(data_file, "r", "utf8") as f:
@@ -43,6 +45,7 @@ print "max_feature_id_num", max_feature_id_num
 
 
 def normal(fc, fea_value, fea):
+    print
     return FEA.__getattribute__(cst.parse_method(fc.method)[0])(fc.name, fea_value)
 
 
@@ -57,8 +60,10 @@ def pair(fc, fea_value, fea):
 
 
 def one_line(line):
+    print line
     with cst.TimeRecord("initial") as _:
         fea = map(lambda x: x.strip(), line.split("\t"))[:len(FEA.fea_number_dict)]
+        # 获取该样本的label
         one_lable = str(int(fea[FEA.fea_number_dict[label_name] - 1]))
 
     def one_fea((n, fea_value)):
@@ -82,6 +87,7 @@ def one_line(line):
     else:
         data_line = " ".join(map(lambda x: ":".join(map(str, x)), sorted(rs, key=lambda x: int(x[0])))
                              + [max_feature_id_num + ":0"])
+    print "--------------\n" + '\t'.join([one_lable, data_line])
     return '\t'.join([one_lable, data_line])
 
 
@@ -89,7 +95,8 @@ import time
 
 t = time.time()
 with cst.TimeRecord("total") as _:
-    pool = mp.Pool(32)
-    rs = pool.map(one_line, data)
+    # pool = mp.Pool(32)
+    # rs = pool.map(one_line, data)
+    rs = map(one_line, data)
     with codecs.open(feature_lines, 'w', 'utf8') as f:
         f.write('\n'.join(rs))

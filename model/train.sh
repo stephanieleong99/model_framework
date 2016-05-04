@@ -25,9 +25,9 @@ cat ${train_data}_dup| awk '{print $NF}'|sort|uniq -c #校验数据
 #变量定义d
 
 #python脚本
-cd /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector && python reconstruct_conf.py
-cd /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector && python gen_feature_ids.py
-cd /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector && python fea_extra.py -m train
+cd /Users/lt/PycharmProjects/UserDetected/feature_work/convert_vector && python reconstruct_conf.py
+cd /Users/lt/PycharmProjects/UserDetected/feature_work/convert_vector && python gen_feature_ids.py
+cd /Users/lt/PycharmProjects/UserDetected/feature_work/convert_vector && python fea_extra.py -m train
 da && head ${features_lines}
 
 
@@ -43,10 +43,10 @@ head -n 200000 whole_file > test_file
 cat test_file| cut -b 1 > y_test
 #train
 
-da &&/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train -v 5 -e 0.1 -s 7 -c 0.5  ${features_lines}
+da &&/Users/lt/PycharmProjects/UserDetected/model/liblinear/train -v 5 -e 0.1 -s 7 -c 0.5  ${features_lines}
 da && rm user_feature_model
-/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train  -e 0.1 -s 7 -c 0.5 /Users/dongjian/data/${features_lines} /Users/dongjian/data/user_feature_model
-/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/predict -b 1 /Users/dongjian/data/test_file /Users/dongjian/data/user_feature_model /Users/dongjian/data/predict
+/Users/lt/PycharmProjects/UserDetected/model/liblinear/train  -e 0.1 -s 7 -c 0.5 /Users/lt/data/${features_lines} /Users/lt/data/user_feature_model
+/Users/lt/PycharmProjects/UserDetected/model/liblinear/predict -b 1 /Users/lt/data/test_file /Users/lt/data/user_feature_model /Users/lt/data/predict
 cat ~/data/predict|tail -n+2 | cut -b 1  > ~/data/y_predict
 
 paste y_test y_predict > rs
@@ -65,8 +65,8 @@ awk -F '\t' '{if(NR==1 ||$NF == 1){print $0}}' user_feature_raw > user_feature_r
 awk -F '\t' '{if(NR==1 ||$NF == 0){print $0}}' user_feature_raw > user_feature_raw_label_0
 
 #test
-python /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector/fea_extra.py -m test
-/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/predict -b 1 /Users/dongjian/data/${features_lines} /Users/dongjian/data/user_feature_model /Users/dongjian/data/user_features_predict
+python /Users/lt/PycharmProjects/UserDetected/feature_work/convert_vector/fea_extra.py -m test
+/Users/lt/PycharmProjects/UserDetected/model/liblinear/predict -b 1 /Users/lt/data/${features_lines} /Users/lt/data/user_feature_model /Users/lt/data/user_features_predict
 
 #print model
 features_ids_name=${app}_features_ids
@@ -77,7 +77,7 @@ sort -t$'\t' -k 2gr model_xishu_ids > model_xishu_ids_sort
 
 #tran id to name
 #把feature_lines 转化为带特征name的
-python /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector/tran_id_to_value.py #user_features_features_lines_with_info
+python /Users/lt/PycharmProjects/UserDetected/feature_work/convert_vector/tran_id_to_value.py #user_features_features_lines_with_info
 
 #paste
 da &&awk -F ' ' 'BEGIN{print "value"}{print $0}' ${features_lines}_with_info > user_features_value_for_paste #带上前缀value

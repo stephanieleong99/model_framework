@@ -10,10 +10,14 @@ import re
 FEA = Feature()
 FEA.read_conf()
 
+# /Users/lt/data/user_feature_raw_dup
 data_file = os.path.join(root, cst.app_file)
+# /Users/lt/data/user_feature_origin_v_1_test_origin_features_lines
 feas = os.path.join(root, "_".join([cst.app, "features_lines"]))
+# /Users/lt/PycharmProjects/model_framework/feature_work/config/user_feature_origin/feas_reconstruct
 rs_file = os.path.join(cst.app_root_path, 'feas_reconstruct')
-print rs_file
+
+# print rs_file
 open(rs_file, 'w').close()
 
 with codecs.open(data_file, "r", "utf8") as f:
@@ -37,7 +41,7 @@ def print_fea_vector(data, split_fea=True):
                     FEA.fea_number_value_list[fea_name].append(f)
 
 
-print FEA.num_fea_dict
+# print FEA.num_fea_dict
 
 
 def generate_conf(fea_number_value_list):

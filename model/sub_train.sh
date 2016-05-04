@@ -1,3 +1,4 @@
+export PYTHONPATH=$PYTHONPATH:/Users/lt/PycharmProjects/model_framework/
 train_data=user_feature_raw
 version=v_1_test_origin
 app_name=user_feature_origin
@@ -6,18 +7,18 @@ features_lines=${app_name}_${version}_features_lines
 test_file=user_features_test
 
 #python脚本
-cd /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector && python reconstruct_conf.py
-cd /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector && python gen_feature_ids.py
-cd /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector && python fea_extra.py -m train
+cd /Users/lt/PycharmProjects/model_framework/feature_work/convert_vector && python reconstruct_conf.py
+cd /Users/lt/PycharmProjects/model_framework/feature_work/convert_vector && python gen_feature_ids.py
+cd /Users/lt/PycharmProjects/model_framework/feature_work/convert_vector && python fea_extra.py -m train
 cd ~/data && head ${features_lines}
 
-cd ~/data &&/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train -v 5 -e 0.1 -s 7 -c 0.5  ${features_lines}
+cd ~/data &&/Users/lt/PycharmProjects/model_framework/model/liblinear/train -v 5 -e 0.1 -s 7 -c 0.5  ${features_lines}
 cd ~/data && rm user_feature_model
-/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/train  -e 0.1 -s 7 -c 0.5 /Users/dongjian/data/${features_lines} /Users/dongjian/data/user_feature_model
+/Users/lt/PycharmProjects/model_framework/model/liblinear/train  -e 0.1 -s 7 -c 0.5 /Users/lt/data/${features_lines} /Users/lt/data/user_feature_model
 
 #test
-python /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector/fea_extra.py -m test
-/Users/dongjian/PycharmProjects/UserDetected/model/liblinear/predict -b 1 /Users/dongjian/data/${features_lines} /Users/dongjian/data/user_feature_model /Users/dongjian/data/user_features_predict
+python /Users/lt/PycharmProjects/model_framework/feature_work/convert_vector/fea_extra.py -m test
+/Users/lt/PycharmProjects/model_framework/model/liblinear/predict -b 1 /Users/lt/data/${features_lines} /Users/lt/data/user_feature_model /Users/lt/data/user_features_predict
 
 #print model
 features_ids_name=${app}_features_ids
@@ -28,7 +29,7 @@ sort -t$'\t' -k 2gr model_xishu_ids > model_xishu_ids_sort
 
 #tran id to name
 #把feature_lines 转化为带特征name的
-python /Users/dongjian/PycharmProjects/UserDetected/feature_work/convert_vector/tran_id_to_value.py #user_features_features_lines_with_info
+python /Users/lt/PycharmProjects/model_framework/feature_work/convert_vector/tran_id_to_value.py #user_features_features_lines_with_info
 
 #paste
 cd ~/data &&awk -F ' ' 'BEGIN{print "value"}{print $0}' ${features_lines}_with_info > user_features_value_for_paste #带上前缀value
