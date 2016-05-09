@@ -3,12 +3,12 @@ import os
 import codecs
 import json
 import itertools
-from utils.CONST import data_dir as root
+from utils.CONST import DATA_DIR as root
 import utils.CONST as cst
 
-fea_name = "_".join([cst.app,"features_coef"])
+fea_name = "_".join([cst.APP, "features_coef"])
 fea_coef = os.path.join(root, fea_name)
-features_ids = os.path.join(root, "_".join([cst.app,"features_ids"]))
+features_ids = os.path.join(root, "_".join([cst.APP, "features_ids"]))
 features_names = os.path.join(root, fea_name + "_with_names")
 
 

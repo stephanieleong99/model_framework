@@ -1,33 +1,27 @@
 # encoding:utf8
-import os
 import codecs
-import bisect
-
-from utils.CONST import data_dir as root
-import json
-import utils.CONST as cst
-import arrow
 import itertools
+import os
 
-config = os.path.join(cst.app_root_path, 'feas')
+import utils.CONST as cst
+from utils.CONST import DATA_DIR
 
+# 特征处理配置信息
+FEA_CONFIG = os.path.join(cst.APP_PATH, 'feas')
 GOLD_SPLIT = "__"
 FEA_ID_SPLIT = "&#&"
 FEA_SPILT = "&"
 
 
-def str2bool(v):
-    return v.lower() in ("yes", "true", "t", "1")
-
-
-def gen_cates(method, arrs):
+def gen_arr_list_by_method_name(method, arrs):
+    """根据不同特征处理方法解析参数列表"""
     def cate(arrs):
         return {ar: 1 for ar in arrs.split("#")}
 
     def number(arrs):
-        if len(arrs) <= 1: return []
-        arrs_list = [float(x) for x in arrs.strip().split("#")]
-        return arrs_list
+        # if len(arrs) <= 1: return []
+        # method_arr_list = [float(x) for x in arrs.strip().split("#")]
+        return [float(x) for x in arrs.strip().split("#")] if len(arrs) > 1 else []
 
     def pair(arrs):
         return []
@@ -36,9 +30,9 @@ def gen_cates(method, arrs):
         return
 
     def origin(arrs):
-        if len(arrs) <= 1: return []
-        arrs_list = [float(x) for x in arrs.strip().split("#")]
-        return arrs_list
+        # if len(arrs) <= 1: return []
+        # method_arr_list = [float(x) for x in arrs.strip().split("#")]
+        return [float(x) for x in arrs.strip().split("#")] if len(arrs) > 1 else []
 
     return locals().get(method)(arrs)
 
@@ -66,59 +60,63 @@ def trans_value_to_threds(inp_list, tgt, lo=0, hi=None):
 
 
 class Conf(object):
-    def __init__(self, name, method, filter_threds, status, ars):
+    """单个特征或特征组合的处理配置信息"""
+    def __init__(self, name, method, filter_threds, status, args):
         self.name = name
         self.method = method
-        self.status = str2bool(status)
+        self.status = status.lower() in ("yes", "true", "t", "1")
         self.filter_threds = filter_threds.split("#") if filter_threds else None
-        self.ars = ars.strip()
-        self.values_list = None
+        self.args = args.strip()
+        self.value_list = None
         self.feature_list = None
         self.key = None
         self.pre_cal()
 
     def pre_cal(self):
         # precalculate
-        self.arrs_list = gen_cates(cst.parse_method(self.method)[0], self.ars)
+        self.method_arr_list = gen_arr_list_by_method_name(cst.parse_method(self.method)[0], self.args)
 
     def __str__(self):
-        return "_".join(map(str, [self.name, self.method, self.status, self.ars]))
+        return "_".join(map(str, [self.name, self.method, self.status, self.args]))
 
-    def parse_ars(self, conf_dict):
-        def number(ars):
-            self.values_list = ars.split("#")
-            self.feature_list = ["_".join([self.values_list[ar], self.values_list[ar + 1]]) for ar in
-                                 xrange(0, len(self.values_list) - 1)]
+    def parse_args(self, conf_dict):
+        def number(args):
+            self.value_list = args.split("#")
+            self.feature_list = ["_".join([self.value_list[ar], self.value_list[ar + 1]]) for ar in
+                                 xrange(0, len(self.value_list) - 1)]
             self.key_list = ["__".join([self.name, fea_value]) for fea_value in self.feature_list]
 
         def cate(ars):
-            self.values_list = ars.split("#")
-            self.feature_list = self.values_list
+            self.value_list = ars.split("#")
+            self.feature_list = self.value_list
             self.key_list = ["__".join([self.name, fea_value]) for fea_value in self.feature_list]
 
-        def pair(ars):
+        def pair(args):
             fea_name_list = self.name.split("&")
             fea_key_list = [conf_dict[name].key_list for name in fea_name_list]
             product_list = itertools.product(*fea_key_list)
             self.key_list = ["#".join(x) for x in product_list]
             self.name = "#".join(fea_name_list)
 
-        def none(ars):
+        def none(args):
             pass
 
-        def origin(ars):
+        def origin(args):
             self.key_list = [self.name]
 
-        locals().get(self.method.split("#")[0])(self.ars)
+        locals().get(self.method.split("#")[0])(self.args)
 
 
 class Feature(object):
+    """所有特征的信息"""
     feature_number = 0
-    feature_dict = {}
-    fea_id_out = os.path.join(root, "_".join([cst.app, "features_ids"]))
-    fea_conf = {}
-    fea_number_dict = {}
-    config = config
+    feature_dict = {} # name: id
+    # /Users/lt/data/user_features_v_1_test_features_ids: feature1#feature2#...&#&id
+    fea_id_out = os.path.join(DATA_DIR, "_".join([cst.APP, "features_ids"]))
+    # name: conf
+    name_conf_dict = {}
+    name_id_dict = {} # name: id
+    config = FEA_CONFIG
     lock = True
 
     def __init__(self):
@@ -126,11 +124,12 @@ class Feature(object):
         self._init_feature_dict()
 
     def _init_feature_dict(self):
+        # 第一次调用时,fea_id_out文件不存在
         if os.path.isfile(self.fea_id_out):
             with codecs.open(self.fea_id_out) as file:
                 def one_fea(data):
-                    fea_name, key = data.split(FEA_ID_SPLIT)
-                    self.feature_dict[fea_name.strip()] = key.strip()
+                    fea_name, id = data.split(FEA_ID_SPLIT)
+                    self.feature_dict[fea_name.strip()] = id.strip()
 
                 map(one_fea, file.readlines())
             try:
@@ -143,13 +142,13 @@ class Feature(object):
             for n, l in enumerate(f.readlines()):
                 if not l.startswith("#"):  # 过掉注释
                     n += 1
-                    print l
                     cf = Conf(*l.split(","))
-                    cf.arrs_list = gen_cates(cst.parse_method(cf.method)[0], cf.ars)
-                    self.fea_conf[cf.name] = cf
-                    self.fea_number_dict[cf.name] = n
-        self.num_fea_dict = {self.fea_number_dict[x]: x for x in self.fea_number_dict}
-        self.fea_number_value_list = {x: list() for x in self.fea_number_dict}
+                    cf.method_arr_list = gen_arr_list_by_method_name(cst.parse_method(cf.method)[0], cf.args)
+                    self.name_conf_dict[cf.name] = cf
+                    self.name_id_dict[cf.name] = n
+        self.id_name_dict = {self.name_id_dict[x]: x for x in self.name_id_dict}
+        # 初始化特征的value list
+        self.name_values_dict = {x: list() for x in self.name_id_dict}
 
     def add_feature(self, fea_name, fea_value=1):
         # print fea_name,fea_name in self.feature_dict
@@ -176,8 +175,8 @@ class Feature(object):
             return 0 if value < 0 or value > 50000000 else value
 
         fea_value = wash(fea_value)
-        cf = self.fea_conf[fea_name]
-        rs = trans_value_to_threds(cf.arrs_list, float(fea_value))
+        cf = self.name_conf_dict[fea_name]
+        rs = trans_value_to_threds(cf.method_arr_list, float(fea_value))
         if rs:
             l, h = rs
             k = GOLD_SPLIT.join([fea_name, "_".join(map(lambda x: str(float('%0.3f' % float(x))), [l, h]))])
@@ -194,7 +193,7 @@ class Feature(object):
         fea_value_list = [check_value(val) for val in fea_value_list]
         # 获得参数list
         fea_list = fea_name_list
-        cf_list = [self.fea_conf[fea] for fea in fea_list]
+        cf_list = [self.name_conf_dict[fea] for fea in fea_list]
         # 做pair
         fea_name_list = [cf.name for cf in cf_list]
 
@@ -203,7 +202,7 @@ class Feature(object):
             data_method = cf.method.split("#")[0]
             if data_method == "number":
                 fea_value = float(fea_value)
-                rs = trans_value_to_threds(cf.arrs_list, fea_value)
+                rs = trans_value_to_threds(cf.method_arr_list, fea_value)
                 if rs:
                     return "_".join([str(x) for x in rs])
 
@@ -222,8 +221,8 @@ class Feature(object):
     def origin(self, fea_name, fea_value):
         k = fea_name
 
-        cf = self.fea_conf[fea_name]
-        l, h = map(lambda x: float('%0.3f' % float(x)), cf.arrs_list)
+        cf = self.name_conf_dict[fea_name]
+        l, h = map(lambda x: float('%0.3f' % float(x)), cf.method_arr_list)
         fea_value = cst.wash(fea_value)
         fea_value = float('%0.3f' % float(fea_value))
         if l <= fea_value <= h:
@@ -235,8 +234,3 @@ class Feature(object):
             f.write("\n".join(
                     sorted([k.strip() + "&#&" + str(v).strip() for k, v in self.feature_dict.items()],
                            key=lambda x: x.split("&#&")[1])))
-
-
-if __name__ == "__main__":
-    f = Feature()
-    f.read_conf()

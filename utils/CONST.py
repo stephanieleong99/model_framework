@@ -3,24 +3,24 @@ import argparse
 import time
 
 # data
-data_dir = "/Users/lt/data"
+DATA_DIR = "/Users/lt/data"
 
 # code
-root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-feature_ext_root_path = os.path.join(root_path, "feature_work")
+PROJ_ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FEATURE_WORK_PATH = os.path.join(PROJ_ROOT_PATH, "feature_work")
 
 # install
-cvt_root_path = os.path.join(feature_ext_root_path, "convert_vector")
-config_path = os.path.join(feature_ext_root_path, "config")
+CVT_PATH = os.path.join(FEATURE_WORK_PATH, "convert_vector")
+CONFIG_PATH = os.path.join(FEATURE_WORK_PATH, "config")
 
-app_name = "user_features"
-version = "v_1_test"
-app = "_".join([app_name, version])
-app_file = "user_feature_raw_dup"  # user_feature_raw_dup user_features_test
-test_file = "user_features_test"  # user_features_test
-# /Users/lt/PycharmProjects/model_framework/feature_work/config/user_feature_origin
-app_root_path = os.path.join(config_path, app_name)
-label_name = "punish_status"
+APP_NAME = "user_features"
+VERSION = "v_1_test"
+APP = "_".join([APP_NAME, VERSION])
+RAW_FILE_NAME = "user_feature_raw_dup"  # user_feature_raw_dup user_features_test
+TEST_FILE_NAME = "user_features_test"  # user_features_test
+# /Users/lt/PycharmProjects/model_framework/feature_work/config/user_features
+APP_PATH = os.path.join(CONFIG_PATH, APP_NAME)
+LABEL = "punish_status"
 
 
 def wash(value):
@@ -43,7 +43,6 @@ class TimeRecord(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         # print "{name}   cost {time} seconds".format(**{"name": self.name, "time": time.time() - self.t})
         pass
-
 
 def safe_get(tmp_list, index, default):
     try:
@@ -90,4 +89,4 @@ if __name__ == "__main__":
     # app = args.app
     # app_file = args.app_file
     # print app, app_file
-    print app_root_path
+    print APP_PATH

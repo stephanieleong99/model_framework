@@ -2,17 +2,17 @@
 import codecs
 import os
 import math
-from utils.CONST import data_dir as root
+from utils.CONST import DATA_DIR as root
 import utils.CONST as cst
 import multiprocessing as mp
 import re
 
-feature_ids_path = os.path.join(root, "_".join([cst.app, "features_ids"]))
-feature_lines_path = os.path.join(root, "_".join([cst.app, "features_lines"]))
-coef_path = os.path.join(root, "_".join([cst.app, "features_coef"]))
+feature_ids_path = os.path.join(root, "_".join([cst.APP, "features_ids"]))
+feature_lines_path = os.path.join(root, "_".join([cst.APP, "features_lines"]))
+coef_path = os.path.join(root, "_".join([cst.APP, "features_coef"]))
 
-choosed_feature_lines = os.path.join(root, "_".join([cst.app, "choosed_feature_lines"]))
-choosed_features = os.path.join(root, "_".join([cst.app, "choosed_feature"]))
+choosed_feature_lines = os.path.join(root, "_".join([cst.APP, "choosed_feature_lines"]))
+choosed_features = os.path.join(root, "_".join([cst.APP, "choosed_feature"]))
 
 # 读取所有特征
 with codecs.open(feature_lines_path, 'r', 'utf8') as f:
